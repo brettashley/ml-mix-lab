@@ -1,4 +1,4 @@
-# project-one
-### Dream Project Number One
+# Galvanize DSI Capstone Project
+### Spotify Playlist Curator
 
-Sentiment Analysis for _The Lord of the Rings_ by J.R.R. Tolkien
+
