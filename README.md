@@ -1,4 +1,4 @@
-# Galvanize DSI Capstone Project
-### Spotify Playlist Curator
+## Mix Maker
+
 
 
