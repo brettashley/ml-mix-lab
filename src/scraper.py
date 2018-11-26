@@ -3,6 +3,7 @@ from selenium.webdriver import Firefox, Chrome
 import time
 
 class Scraper():
+    """A web scraper specific to https://www.whosampled.com"""
 
     def __init__(self, url, browser=Firefox()):
         self.b = browser
@@ -11,6 +12,7 @@ class Scraper():
 
 
     def _accept_cookies(self):
+        """Finds 'Accept Cookies' Button if it exists and clicks"""
         try:
             button = self.b.find_element_by_css_selector('button.qc-cmp-button')
             button.click()
@@ -22,6 +24,17 @@ class Scraper():
         # sel = "div#content div.divided-layout div.layout-container.leftContent div"
 
     def find_desired_section(self, sel, desired_section):
+        """Finds a section on a webpage
+
+        Parameters
+        ----------
+        sel : string, css_selector
+        desired_section : string, title of desired section
+
+        Returns
+        -------
+        object : webpage section 
+        """
         self._accept_cookies()
         sect_divs = self.b.find_elements_by_css_selector(sel)
         for i, div in enumerate(sect_divs):
@@ -29,6 +42,17 @@ class Scraper():
                 return sect_divs[i+1]
 
     def get_artist_urls(self, artists_section):
+        """Finds artist URL's on a genre page
+
+        Parameters
+        ----------
+        artists_section : object, css_selector
+        desired_section : string, title of desired section
+
+        Returns
+        -------
+        generator : list of dictionaries for each artist name and url
+        """
         artist_tiles = artists_section.find_elements_by_css_selector('li')
         artists = {}
         for tile in artist_tiles:
@@ -50,3 +74,6 @@ class Scraper():
             a = track.find_element_by_css_selector('a')
             yield {'track_name': track.text,
                    'url': a.get_attribute('href')}
+
+    def get(self, url):
+        self.b.get(url)
