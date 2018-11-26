@@ -22,18 +22,18 @@ class DatabaseInteraction():
         '''
         for artist in artist_urls:
             query = f"""   
-                INSERT INTO artists (name, url)
+                INSERT INTO artists (name, url, scraped)
                 
-                SELECT '{artist["name"]}',
-                        '{artist["url"]}'
-                WHERE NOT EXISTS (
-                            SELECT name, url FROM artists 
-                            WHERE name = '{artist["name"]}' 
-                            AND url = '{artist["url"]}'
+                SELECT %s, %s, 0
+                        
+                WHERE %s NOT IN (
+                            SELECT url FROM artists
                             );
                         """
-
-            self.cur.execute(query)
+            self.cur.execute(query, (
+                 artist["name"],
+                 artist["url"],
+                 artist["url"]))
             self.conn.commit()
 
     def write_songs(self, song_urls):
@@ -48,16 +48,83 @@ class DatabaseInteraction():
         '''
         for song in song_urls:
             query = f"""   
-                INSERT INTO songs (name, url)
+                INSERT INTO songs (artist_id, name, url, scraped)
                 
-                SELECT '{song["name"]}',
-                        '{song["url"]}'
-                WHERE NOT EXISTS (
-                            SELECT name, url FROM artists 
-                            WHERE name = '{song["name"]}' 
-                            AND url = '{song["url"]}'
+                SELECT %s, %s, %s, 0
+                        
+                WHERE %s NOT IN (
+                            SELECT url FROM artists
                             );
                         """
-
-            self.cur.execute(query)
+            self.cur.execute(query, (
+                 song["artist_id"],
+                 song["track_name"],
+                 song["url"],
+                 song["url"]))
             self.conn.commit()
+
+
+    def update_scraped_status(self, table, id_to_update, status):
+        
+        query = f"""
+                UPDATE %s
+                SET scraped = %s
+                WHERE id = %s
+                ;"""
+
+        self.cur.execute(query, (table, status, id_to_update))
+        self.conn.commit()
+
+
+
+
+    def get_next_artist_to_scrape(self):
+        """ 
+        Returns
+        -------
+        arist :  dictionary of next artist to scrape      
+        """
+        query = """
+                SELECT id, url FROM artists
+                WHERE scraped = 0
+                ORDER BY id
+                LIMIT 1
+                """
+
+        self.cur.execute(query)
+        self.conn.commit()
+        output = list(self.cur)
+        return {'id' : output[0][0],
+                'url' : output[0][1]}
+
+    def get_next_song_to_scrape(self):
+        """ 
+        Returns
+        -------
+        arist :  dictionary of next artist to scrape      
+        """
+        query = """
+                SELECT id, url FROM songs
+                WHERE scraped = 0
+                ORDER BY id
+                LIMIT 1
+                """
+
+        self.cur.execute(query)
+        self.conn.commit()
+        output = list(self.cur)
+        return {'id' : output[0][0],
+                'url' : output[0][1]}
+
+    def count_songs_to_scrape(self, artist_id):
+        query = """
+                SELECT count(*) FROM songs
+                WHERE scraped = 0
+                """
+
+        self.cur.execute(query)
+        self.conn.commit()
+        return list(self.cur)[0][0]
+
+
+
