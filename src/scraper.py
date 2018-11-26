@@ -1,6 +1,7 @@
 import selenium
 from selenium.webdriver import Firefox, Chrome
 import time
+from DatabaseInteraction import DatabaseInteraction
 
 class Scraper():
     """A web scraper specific to https://www.whosampled.com"""
@@ -60,8 +61,9 @@ class Scraper():
             time.sleep(2)
             a = tile.find_element_by_css_selector('a')
             artist_name = tile.text
-            yield {'name': artist_name,
+            artists = {'name': artist_name,
                     'url': a.get_attribute('href')}
+            
 
 
     def get_artist_songs(self, artist_url_dict):
@@ -74,6 +76,30 @@ class Scraper():
             a = track.find_element_by_css_selector('a')
             yield {'track_name': track.text,
                    'url': a.get_attribute('href')}
+
+    def get_song_connections(self, song_url):
+        """Navigates to song page and scrapes all song connections and artist links"""
+        try:
+            sel = "div#content\
+             div.divided-layout\
+             div.list-content-action-mobile"
+            button = self.b.find_element_by_css_selector(sel)
+            a = button.find_element_by_css_selector('a')
+            url = a.get_attribute('href')
+            self._get_was_sampled_in(url)
+        except selenium.common.exceptions.NoSuchElementException:
+            self._get_was_sampled_in(song_url)
+        
+
+
+
+    def _get_contains_samples(self, song_url):
+        pass
+
+    def _get_was_sampled_in(self, song_url):
+        pass
+
+
 
     def get(self, url):
         self.b.get(url)
