@@ -1,0 +1,373 @@
+{'artist_id': 2, 'track_name': 'Get Up Offa That Thing (1976)', 'url': 'https://www.whosampled.com/James-Brown/Get-Up-Offa-That-Thing/'}
+{'artist_id': 2, 'track_name': "Funky President (People It's Bad) (1974)", 'url': 'https://www.whosampled.com/James-Brown/Funky-President-(People-It%27s-Bad)/'}
+{'artist_id': 2, 'track_name': 'Funky Drummer (1970)', 'url': 'https://www.whosampled.com/James-Brown/Funky-Drummer/'}
+{'artist_id': 2, 'track_name': "Sho' Nuff (1973)\nby Sly, Slick and Wicked\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Sly,-Slick-and-Wicked/Sho%27-Nuff/'}
+{'artist_id': 2, 'track_name': 'My Thang (1974)', 'url': 'https://www.whosampled.com/James-Brown/My-Thang/'}
+{'artist_id': 2, 'track_name': 'Think (About It) (1972)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Think-(About-It)/'}
+{'artist_id': 2, 'track_name': "Don't Tell a Lie About Me and I Won't Tell the Truth on You (1974)", 'url': 'https://www.whosampled.com/James-Brown/Don%27t-Tell-a-Lie-About-Me-and-I-Won%27t-Tell-the-Truth-on-You/'}
+{'artist_id': 2, 'track_name': 'The Payback (1973)', 'url': 'https://www.whosampled.com/James-Brown/The-Payback/'}
+{'artist_id': 2, 'track_name': "Say It Loud, I'm Black and I'm Proud (1968)", 'url': 'https://www.whosampled.com/James-Brown/Say-It-Loud,-I%27m-Black-and-I%27m-Proud/'}
+{'artist_id': 2, 'track_name': 'Licking Stick - Licking Stick (1968)', 'url': 'https://www.whosampled.com/James-Brown/Licking-Stick-Licking-Stick/'}
+{'artist_id': 2, 'track_name': 'Introduction to Star Time! (1968)', 'url': 'https://www.whosampled.com/James-Brown/Introduction-to-Star-Time!/'}
+{'artist_id': 2, 'track_name': "The Grunt (1970)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/The-Grunt/'}
+{'artist_id': 2, 'track_name': "I'm Not to Blame (1970)\nby Bobby Byrd\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Bobby-Byrd/I%27m-Not-to-Blame/'}
+{'artist_id': 2, 'track_name': 'Funky Drummer (Bonus Beat Reprise) (1986)', 'url': 'https://www.whosampled.com/James-Brown/Funky-Drummer-(Bonus-Beat-Reprise)/'}
+{'artist_id': 2, 'track_name': "Blow Your Head (1974)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/Blow-Your-Head/'}
+{'artist_id': 2, 'track_name': 'Blind Man Can See It (1973)', 'url': 'https://www.whosampled.com/James-Brown/Blind-Man-Can-See-It/'}
+{'artist_id': 2, 'track_name': 'Unwind Yourself (1967)\nby Marva Whitney\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Marva-Whitney/Unwind-Yourself/'}
+{'artist_id': 2, 'track_name': 'The Boss (1973)', 'url': 'https://www.whosampled.com/James-Brown/The-Boss/'}
+{'artist_id': 2, 'track_name': "I'm a Greedy Man (1971)", 'url': 'https://www.whosampled.com/James-Brown/I%27m-a-Greedy-Man/'}
+{'artist_id': 2, 'track_name': "It's My Thing (1969)\nby Marva Whitney\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Marva-Whitney/It%27s-My-Thing/'}
+{'artist_id': 2, 'track_name': 'Coldblooded (1974)', 'url': 'https://www.whosampled.com/James-Brown/Coldblooded/'}
+{'artist_id': 2, 'track_name': 'Yes It\'s You (1974)\nby "Sweet" Charles Sherrell\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/%22Sweet%22-Charles-Sherrell/Yes-It%27s-You/'}
+{'artist_id': 2, 'track_name': 'Blues and Pants (1971)', 'url': 'https://www.whosampled.com/James-Brown/Blues-and-Pants/'}
+{'artist_id': 2, 'track_name': 'Hot Pants (Bonus Beats) (1987)\nby Bobby Byrd\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bobby-Byrd/Hot-Pants-(Bonus-Beats)/'}
+{'artist_id': 2, 'track_name': 'Mind Power (1973)', 'url': 'https://www.whosampled.com/James-Brown/Mind-Power/'}
+{'artist_id': 2, 'track_name': 'Sunny (1968)', 'url': 'https://www.whosampled.com/James-Brown/Sunny/'}
+{'artist_id': 2, 'track_name': 'People Get Up and Drive Your Funky Soul (Remix) (1988)', 'url': 'https://www.whosampled.com/James-Brown/People-Get-Up-and-Drive-Your-Funky-Soul-(Remix)/'}
+{'artist_id': 2, 'track_name': "Pass the Peas (1972)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/Pass-the-Peas/'}
+{'artist_id': 2, 'track_name': 'Put It on the Line (1975)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Put-It-on-the-Line/'}
+{'artist_id': 2, 'track_name': 'In the Land of Milk and Honey (1971)\nby Vicki Anderson\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Vicki-Anderson/In-the-Land-of-Milk-and-Honey/'}
+{'artist_id': 2, 'track_name': 'I Know You Got Soul (1971)\nby Bobby Byrd\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bobby-Byrd/I-Know-You-Got-Soul/'}
+{'artist_id': 2, 'track_name': "Givin' Up Food for Funk (1972)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/Givin%27-Up-Food-for-Funk/'}
+{'artist_id': 2, 'track_name': 'The Message From the Soul Sisters (1970)\nby Myra Barnes\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Myra-Barnes/The-Message-From-the-Soul-Sisters/'}
+{'artist_id': 2, 'track_name': "Gimme Some More (1970)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/Gimme-Some-More/'}
+{'artist_id': 2, 'track_name': 'Make It Funky (1971)', 'url': 'https://www.whosampled.com/James-Brown/Make-It-Funky/'}
+{'artist_id': 2, 'track_name': 'Parrty (1973)\nby Maceo & the Macks\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Maceo-%26-the-Macks/Parrty/'}
+{'artist_id': 2, 'track_name': 'King Heroin (1972)', 'url': 'https://www.whosampled.com/James-Brown/King-Heroin/'}
+{'artist_id': 2, 'track_name': 'Just Enough Room for Storage (1971)', 'url': 'https://www.whosampled.com/James-Brown/Just-Enough-Room-for-Storage/'}
+{'artist_id': 2, 'track_name': "It's a Man's Man's Man's World (1966)", 'url': 'https://www.whosampled.com/James-Brown/It%27s-a-Man%27s-Man%27s-Man%27s-World/'}
+{'artist_id': 2, 'track_name': "Papa Don't Take No Mess (1974)", 'url': 'https://www.whosampled.com/James-Brown/Papa-Don%27t-Take-No-Mess/'}
+{'artist_id': 2, 'track_name': "More Peas (1973)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/More-Peas/'}
+{'artist_id': 2, 'track_name': 'Get on the Good Foot (1972)', 'url': 'https://www.whosampled.com/James-Brown/Get-on-the-Good-Foot/'}
+{'artist_id': 2, 'track_name': 'Soul Pride (1969)', 'url': 'https://www.whosampled.com/James-Brown/Soul-Pride/'}
+{'artist_id': 2, 'track_name': 'Can Mind (1971)', 'url': 'https://www.whosampled.com/James-Brown/Can-Mind/'}
+{'artist_id': 2, 'track_name': 'Get Up, Get Into It, Get Involved (1970)', 'url': 'https://www.whosampled.com/James-Brown/Get-Up,-Get-Into-It,-Get-Involved/'}
+{'artist_id': 2, 'track_name': 'Take Some...Leave Some (1973)', 'url': 'https://www.whosampled.com/James-Brown/Take-Some...Leave-Some/'}
+{'artist_id': 2, 'track_name': 'There Was a Time (1969)\nby Dee Felice Trio\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Dee-Felice-Trio/There-Was-a-Time/'}
+{'artist_id': 2, 'track_name': "(It's Not the Express) It's the J.B.'s Monaurail (1975)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/(It%27s-Not-the-Express)-It%27s-the-J.B.%27s-Monaurail/'}
+{'artist_id': 2, 'track_name': "Damn Right I'm Somebody (1974)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/Damn-Right-I%27m-Somebody/'}
+{'artist_id': 2, 'track_name': 'Soul Power 74 (1974)\nby Maceo & the Macks\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Maceo-%26-the-Macks/Soul-Power-74/'}
+{'artist_id': 2, 'track_name': "It's a New Day So Let a Man Come in and Do the Popcorn (1971)", 'url': 'https://www.whosampled.com/James-Brown/It%27s-a-New-Day-So-Let-a-Man-Come-in-and-Do-the-Popcorn/'}
+{'artist_id': 2, 'track_name': 'Escape-Ism (1971)', 'url': 'https://www.whosampled.com/James-Brown/Escape-Ism/'}
+{'artist_id': 2, 'track_name': "Think 73' (1973)", 'url': 'https://www.whosampled.com/James-Brown/Think-73%27/'}
+{'artist_id': 2, 'track_name': "Rockin' Funky Watergate (1974)\nby Fred & the New J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-%26-the-New-J.B.%27s/Rockin%27-Funky-Watergate/'}
+{'artist_id': 2, 'track_name': 'Get Up (I Feel Like Being A) Sex Machine (1970)', 'url': 'https://www.whosampled.com/James-Brown/Get-Up-(I-Feel-Like-Being-A)-Sex-Machine/'}
+{'artist_id': 2, 'track_name': 'The Spank (1978)', 'url': 'https://www.whosampled.com/James-Brown/The-Spank/'}
+{'artist_id': 2, 'track_name': 'Night Train (1962)', 'url': 'https://www.whosampled.com/James-Brown/Night-Train/'}
+{'artist_id': 2, 'track_name': "Bring It Up (Hipster's Avenue) (1967)", 'url': 'https://www.whosampled.com/James-Brown/Bring-It-Up-(Hipster%27s-Avenue)/'}
+{'artist_id': 2, 'track_name': 'Strangers in the Night (1974)\nby "Sweet" Charles Sherrell\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/%22Sweet%22-Charles-Sherrell/Strangers-in-the-Night/'}
+{'artist_id': 2, 'track_name': 'Hot (I Need to Be Loved, Loved, Loved, Loved) (1975)', 'url': 'https://www.whosampled.com/James-Brown/Hot-(I-Need-to-Be-Loved,-Loved,-Loved,-Loved)/'}
+{'artist_id': 2, 'track_name': 'Cold Sweat (1967)', 'url': 'https://www.whosampled.com/James-Brown/Cold-Sweat/'}
+{'artist_id': 2, 'track_name': 'I Got You (I Feel Good) (1965)', 'url': 'https://www.whosampled.com/James-Brown/I-Got-You-(I-Feel-Good)/'}
+{'artist_id': 2, 'track_name': "You Can't Love Me if You Don't Respect Me (1973)\nby Lyn Collins\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Lyn-Collins/You-Can%27t-Love-Me-if-You-Don%27t-Respect-Me/'}
+{'artist_id': 2, 'track_name': "Hot Pants Road (1970)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/Hot-Pants-Road/'}
+{'artist_id': 2, 'track_name': "Hot Pants - I'm Coming, I'm Coming, I'm Coming (1972)\nby Bobby Byrd\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Bobby-Byrd/Hot-Pants-I%27m-Coming,-I%27m-Coming,-I%27m-Coming/'}
+{'artist_id': 2, 'track_name': "Godfather Runnin' the Joint (1988)", 'url': 'https://www.whosampled.com/James-Brown/Godfather-Runnin%27-the-Joint/'}
+{'artist_id': 2, 'track_name': 'I Got Ants in My Pants (1972)', 'url': 'https://www.whosampled.com/James-Brown/I-Got-Ants-in-My-Pants/'}
+{'artist_id': 2, 'track_name': 'Super Bad (1970)', 'url': 'https://www.whosampled.com/James-Brown/Super-Bad/'}
+{'artist_id': 2, 'track_name': 'Stone to the Bone (1973)', 'url': 'https://www.whosampled.com/James-Brown/Stone-to-the-Bone/'}
+{'artist_id': 2, 'track_name': "Ain't It Funky Now (1969)", 'url': 'https://www.whosampled.com/James-Brown/Ain%27t-It-Funky-Now/'}
+{'artist_id': 2, 'track_name': 'Cross the Track (We Better Go Back) (1975)\nby Maceo & the Macks\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Maceo-%26-the-Macks/Cross-the-Track-(We-Better-Go-Back)/'}
+{'artist_id': 2, 'track_name': "Keep on Bumpin' Before You Give Out of Gas (1974)\nby The Last Word\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-Last-Word/Keep-on-Bumpin%27-Before-You-Give-Out-of-Gas/'}
+{'artist_id': 2, 'track_name': "Ain't No Sunshine (1972)\nby Lyn Collins\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Lyn-Collins/Ain%27t-No-Sunshine/'}
+{'artist_id': 2, 'track_name': "Talkin' Loud & Sayin' Nothing (1972)", 'url': 'https://www.whosampled.com/James-Brown/Talkin%27-Loud-%26-Sayin%27-Nothing/'}
+{'artist_id': 2, 'track_name': "You Can Have Watergate Just Gimme Some Bucks and I'll Be Straight (1973)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/You-Can-Have-Watergate-Just-Gimme-Some-Bucks-and-I%27ll-Be-Straight/'}
+{'artist_id': 2, 'track_name': 'There It Is (1972)', 'url': 'https://www.whosampled.com/James-Brown/There-It-Is/'}
+{'artist_id': 2, 'track_name': "They Don't Want Music (2005)\nby Black Eyed Peas feat. James Brown", 'url': 'https://www.whosampled.com/Black-Eyed-Peas/They-Don%27t-Want-Music/'}
+{'artist_id': 2, 'track_name': 'We Want to Parrty, Parrty, Parrty (1973)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/We-Want-to-Parrty,-Parrty,-Parrty/'}
+{'artist_id': 2, 'track_name': 'Please, Please, Please (1956)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Please,-Please,-Please/'}
+{'artist_id': 2, 'track_name': 'Honky Tonk (1969) (1969)\nby Bill Doggett\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bill-Doggett/Honky-Tonk-(1969)/'}
+{'artist_id': 2, 'track_name': 'Soul Man (1974)\nby "Sweet" Charles Sherrell\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/%22Sweet%22-Charles-Sherrell/Soul-Man/'}
+{'artist_id': 2, 'track_name': 'Mama Feelgood (1973)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Mama-Feelgood/'}
+{'artist_id': 2, 'track_name': "Don't Tell It (1976)", 'url': 'https://www.whosampled.com/James-Brown/Don%27t-Tell-It/'}
+{'artist_id': 2, 'track_name': 'Unchained (The Payback/Untouchable) (2012)\nby James Brown and 2Pac', 'url': 'https://www.whosampled.com/James-Brown/Unchained-(The-PaybackUntouchable)/'}
+{'artist_id': 2, 'track_name': 'Mother Popcorn (1969)', 'url': 'https://www.whosampled.com/James-Brown/Mother-Popcorn/'}
+{'artist_id': 2, 'track_name': 'Chase (1973)', 'url': 'https://www.whosampled.com/James-Brown/Chase/'}
+{'artist_id': 2, 'track_name': 'No Strings Attached (1969)\nby The Mad Lads\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/The-Mad-Lads/No-Strings-Attached/'}
+{'artist_id': 2, 'track_name': 'Soul Power (1971)', 'url': 'https://www.whosampled.com/James-Brown/Soul-Power/'}
+{'artist_id': 2, 'track_name': 'Never Can Say Goodbye (1972)', 'url': 'https://www.whosampled.com/James-Brown/Never-Can-Say-Goodbye/'}
+{'artist_id': 2, 'track_name': 'All for One (1974)', 'url': 'https://www.whosampled.com/James-Brown/All-for-One/'}
+{'artist_id': 2, 'track_name': 'Tighten Up (1993)', 'url': 'https://www.whosampled.com/James-Brown/Tighten-Up/'}
+{'artist_id': 2, 'track_name': "I Wanna Get Down (1974)\nby Fred & the New J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-%26-the-New-J.B.%27s/I-Wanna-Get-Down/'}
+{'artist_id': 2, 'track_name': "You're Welcome, Stop on By (1975)\nby Vicki Anderson\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Vicki-Anderson/You%27re-Welcome,-Stop-on-By/'}
+{'artist_id': 2, 'track_name': 'Future Shock (Dance Your Pants Off) (1973)\nby Maceo Parker\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Maceo-Parker/Future-Shock-(Dance-Your-Pants-Off)/'}
+{'artist_id': 2, 'track_name': 'Hot Pants Pt. 1 (She Got to Use What She Got to Get What She Wants) (1971)', 'url': 'https://www.whosampled.com/James-Brown/Hot-Pants-Pt.-1-(She-Got-to-Use-What-She-Got-to-Get-What-She-Wants)/'}
+{'artist_id': 2, 'track_name': "Papa's Got a Brand New Bag (1965)", 'url': 'https://www.whosampled.com/James-Brown/Papa%27s-Got-a-Brand-New-Bag/'}
+{'artist_id': 2, 'track_name': 'White Lightning (I Mean Moonshine) (1973)', 'url': 'https://www.whosampled.com/James-Brown/White-Lightning-(I-Mean-Moonshine)/'}
+{'artist_id': 2, 'track_name': 'I Got to Move (1986)', 'url': 'https://www.whosampled.com/James-Brown/I-Got-to-Move/'}
+{'artist_id': 2, 'track_name': 'Take Me Just as I Am (1973)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Take-Me-Just-as-I-Am/'}
+{'artist_id': 2, 'track_name': 'In the Middle (1968)', 'url': 'https://www.whosampled.com/James-Brown/In-the-Middle/'}
+{'artist_id': 2, 'track_name': 'Do Your Thing (1972)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Do-Your-Thing/'}
+{'artist_id': 2, 'track_name': 'Give It Up or Turnit a Loose (1969)', 'url': 'https://www.whosampled.com/James-Brown/Give-It-Up-or-Turnit-a-Loose/'}
+{'artist_id': 2, 'track_name': 'Things Got to Get Better (1972)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Things-Got-to-Get-Better/'}
+{'artist_id': 2, 'track_name': 'Down and Out in New York City (1973)', 'url': 'https://www.whosampled.com/James-Brown/Down-and-Out-in-New-York-City/'}
+{'artist_id': 2, 'track_name': "Just Won't Do Right (1957)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/Just-Won%27t-Do-Right/'}
+{'artist_id': 2, 'track_name': "Mama's Dead (1973)", 'url': 'https://www.whosampled.com/James-Brown/Mama%27s-Dead/'}
+{'artist_id': 2, 'track_name': 'Untitled Instrumental (1988)', 'url': 'https://www.whosampled.com/James-Brown/Untitled-Instrumental/'}
+{'artist_id': 2, 'track_name': 'Me and My Baby Got Our Own Thing Going (1972)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Me-and-My-Baby-Got-Our-Own-Thing-Going/'}
+{'artist_id': 2, 'track_name': "It's a New Day (1970)", 'url': 'https://www.whosampled.com/James-Brown/It%27s-a-New-Day/'}
+{'artist_id': 2, 'track_name': 'Something (1973)', 'url': 'https://www.whosampled.com/James-Brown/Something/'}
+{'artist_id': 2, 'track_name': 'Give It Up or Turnit a Loose (Remix) (1986)', 'url': 'https://www.whosampled.com/James-Brown/Give-It-Up-or-Turnit-a-Loose-(Remix)/'}
+{'artist_id': 2, 'track_name': 'Superbad, Superslick (1975)', 'url': 'https://www.whosampled.com/James-Brown/Superbad,-Superslick/'}
+{'artist_id': 2, 'track_name': 'The Popcorn (1969)', 'url': 'https://www.whosampled.com/James-Brown/The-Popcorn/'}
+{'artist_id': 2, 'track_name': "If You Don't Get It the First Time, Back Up & Try It Again, Parrty (1974)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/If-You-Don%27t-Get-It-the-First-Time,-Back-Up-%26-Try-It-Again,-Parrty/'}
+{'artist_id': 2, 'track_name': 'People Get Up and Drive Your Funky Soul (1973)', 'url': 'https://www.whosampled.com/James-Brown/People-Get-Up-and-Drive-Your-Funky-Soul/'}
+{'artist_id': 2, 'track_name': 'Baby, Here I Come (1988)', 'url': 'https://www.whosampled.com/James-Brown/Baby,-Here-I-Come/'}
+{'artist_id': 2, 'track_name': 'The Soul of a Black Man (1973)\nby Maceo Parker\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Maceo-Parker/The-Soul-of-a-Black-Man/'}
+{'artist_id': 2, 'track_name': "I Don't Want Nobody to Give Me Nothing (Open Up the Door I'll Get It Myself) (1969)", 'url': 'https://www.whosampled.com/James-Brown/I-Don%27t-Want-Nobody-to-Give-Me-Nothing-(Open-Up-the-Door-I%27ll-Get-It-Myself)/'}
+{'artist_id': 2, 'track_name': "La Di Da La Di Day (1973)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/La-Di-Da-La-Di-Day/'}
+{'artist_id': 2, 'track_name': 'Can I Get Some Help (1988)', 'url': 'https://www.whosampled.com/James-Brown/Can-I-Get-Some-Help/'}
+{'artist_id': 2, 'track_name': 'Nose Job (1970)', 'url': 'https://www.whosampled.com/James-Brown/Nose-Job/'}
+{'artist_id': 2, 'track_name': "Introduction to the J.B.'s (1973)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/Introduction-to-the-J.B.%27s/'}
+{'artist_id': 2, 'track_name': "She's the One (Funky Drummer Remix) (1988)", 'url': 'https://www.whosampled.com/James-Brown/She%27s-the-One-(Funky-Drummer-Remix)/'}
+{'artist_id': 2, 'track_name': 'Static (1988)\nby James Brown feat. Full Force', 'url': 'https://www.whosampled.com/James-Brown/Static/'}
+{'artist_id': 2, 'track_name': 'Shout and Shimmy (1962)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Shout-and-Shimmy/'}
+{'artist_id': 2, 'track_name': 'Sex Machine (Fantastic Sex Machine Mix) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Sex-Machine-(Fantastic-Sex-Machine-Mix)/'}
+{'artist_id': 2, 'track_name': '(Get Up I Feel LIke Being Like A) Sex Machine (Live) (1970)', 'url': 'https://www.whosampled.com/James-Brown/(Get-Up-I-Feel-LIke-Being-Like-A)-Sex-Machine-(Live)/'}
+{'artist_id': 2, 'track_name': "I'm Tired I'm Tired I'm Tired (1968)\nby Marva Whitney\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Marva-Whitney/I%27m-Tired-I%27m-Tired-I%27m-Tired/'}
+{'artist_id': 2, 'track_name': "She Looks All Types A' Good (1988)", 'url': 'https://www.whosampled.com/James-Brown/She-Looks-All-Types-A%27-Good/'}
+{'artist_id': 2, 'track_name': 'Funky Drummer (Listen to the Muro Mix) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Funky-Drummer-(Listen-to-the-Muro-Mix)/'}
+{'artist_id': 2, 'track_name': "Unity (Pt. 2 - Because It's Coming) (1984)\nby Afrika Bambaataa and James Brown", 'url': 'https://www.whosampled.com/Afrika-Bambaataa/Unity-(Pt.-2-Because-It%27s-Coming)/'}
+{'artist_id': 2, 'track_name': 'Wichita Lineman (1969)\nby Dee Felice Trio\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Dee-Felice-Trio/Wichita-Lineman/'}
+{'artist_id': 2, 'track_name': 'Who Knows (1970)\nby Beau Dollar\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Beau-Dollar/Who-Knows/'}
+{'artist_id': 2, 'track_name': "I'm Shook (1969)", 'url': 'https://www.whosampled.com/James-Brown/I%27m-Shook/'}
+{'artist_id': 2, 'track_name': 'Rock Me Again & Again & Again & Again & Again & Again (6 Times) (1975)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Rock-Me-Again-%26-Again-%26-Again-%26-Again-%26-Again-%26-Again-(6-Times)/'}
+{'artist_id': 2, 'track_name': "Blow Your Head (Undubbed Version) (1989)\nby Fred Wesley and The J.B.'s\nRemixer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/Blow-Your-Head-(Undubbed-Version)/'}
+{'artist_id': 2, 'track_name': "Oh Baby Don't You Weep (Part 1) (1964)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/Oh-Baby-Don%27t-You-Weep-(Part-1)/'}
+{'artist_id': 2, 'track_name': 'The Chicken (1969)', 'url': 'https://www.whosampled.com/James-Brown/The-Chicken/'}
+{'artist_id': 2, 'track_name': 'Popcorn With a Feeling (1969)', 'url': 'https://www.whosampled.com/James-Brown/Popcorn-With-a-Feeling/'}
+{'artist_id': 2, 'track_name': 'Unity (1984)\nby Afrika Bambaataa and James Brown', 'url': 'https://www.whosampled.com/Afrika-Bambaataa/Unity/'}
+{'artist_id': 2, 'track_name': 'Never Get Enough (1972)\nby Bobby Byrd\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bobby-Byrd/Never-Get-Enough/'}
+{'artist_id': 2, 'track_name': 'Unity (Pt. 3 - Nuclear Wildstyle) (1984)\nby Afrika Bambaataa and James Brown', 'url': 'https://www.whosampled.com/Afrika-Bambaataa/Unity-(Pt.-3-Nuclear-Wildstyle)/'}
+{'artist_id': 2, 'track_name': "Damn Right I'm Somebody (Love and Happiness) (1974)\nby Fred Wesley and The J.B.'s feat. Lyn Collins\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/Damn-Right-I%27m-Somebody-(Love-and-Happiness)/'}
+{'artist_id': 2, 'track_name': 'Fly Me to the Moon (1972)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Fly-Me-to-the-Moon/'}
+{'artist_id': 2, 'track_name': 'Introduction (1963)', 'url': 'https://www.whosampled.com/James-Brown/Introduction/'}
+{'artist_id': 2, 'track_name': "Same Beat (1974)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/Same-Beat/'}
+{'artist_id': 2, 'track_name': 'Sho Is Funky Down Here (1971)', 'url': 'https://www.whosampled.com/James-Brown/Sho-Is-Funky-Down-Here/'}
+{'artist_id': 2, 'track_name': "They Don't Want Music (Pete Rock Remix) (2006)\nby Black Eyed Peas feat. James Brown", 'url': 'https://www.whosampled.com/Black-Eyed-Peas/They-Don%27t-Want-Music-(Pete-Rock-Remix)/'}
+{'artist_id': 2, 'track_name': "I've Got Money (1962)", 'url': 'https://www.whosampled.com/James-Brown/I%27ve-Got-Money/'}
+{'artist_id': 2, 'track_name': 'Hang Out & Hustle (1975)\nby "Sweet" Charles Sherrell\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/%22Sweet%22-Charles-Sherrell/Hang-Out-%26-Hustle/'}
+{'artist_id': 2, 'track_name': 'Make It Good to Yourself (1973)', 'url': 'https://www.whosampled.com/James-Brown/Make-It-Good-to-Yourself/'}
+{'artist_id': 2, 'track_name': 'Lowdown Popcorn (1969)', 'url': 'https://www.whosampled.com/James-Brown/Lowdown-Popcorn/'}
+{'artist_id': 2, 'track_name': 'Turn on the Heat and Build Some Fire (1975)', 'url': 'https://www.whosampled.com/James-Brown/Turn-on-the-Heat-and-Build-Some-Fire/'}
+{'artist_id': 2, 'track_name': 'When a Man Loves a Woman (1991)\nby James Brown feat. Joe Cocker', 'url': 'https://www.whosampled.com/James-Brown/When-a-Man-Loves-a-Woman/'}
+{'artist_id': 2, 'track_name': 'Your Love (1977)', 'url': 'https://www.whosampled.com/James-Brown/Your-Love/'}
+{'artist_id': 2, 'track_name': 'Things Got to Get Better (Get Together) (1969)\nby Marva Whitney\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Marva-Whitney/Things-Got-to-Get-Better-(Get-Together)/'}
+{'artist_id': 2, 'track_name': "Sportin' Life (1973)", 'url': 'https://www.whosampled.com/James-Brown/Sportin%27-Life/'}
+{'artist_id': 2, 'track_name': 'Sex Machine (Live at Studio 54) (1981)', 'url': 'https://www.whosampled.com/James-Brown/Sex-Machine-(Live-at-Studio-54)/'}
+{'artist_id': 2, 'track_name': 'You Got to Have a Mother for Me (1969)', 'url': 'https://www.whosampled.com/James-Brown/You-Got-to-Have-a-Mother-for-Me/'}
+{'artist_id': 2, 'track_name': 'Tighten Up Tighter (1968)\nby Billy Ball and the Upsetters feat. Roosevelt Matthews\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Billy-Ball-and-the-Upsetters/Tighten-Up-Tighter/'}
+{'artist_id': 2, 'track_name': "Talkin' Loud & Sayin' Nothing (Pt 1 & 2) (1970)", 'url': 'https://www.whosampled.com/James-Brown/Talkin%27-Loud-%26-Sayin%27-Nothing-(Pt-1-%26-2)/'}
+{'artist_id': 2, 'track_name': "That's Life (1969)", 'url': 'https://www.whosampled.com/James-Brown/That%27s-Life/'}
+{'artist_id': 2, 'track_name': "Slaughter's Theme (1973)", 'url': 'https://www.whosampled.com/James-Brown/Slaughter%27s-Theme/'}
+{'artist_id': 2, 'track_name': 'Transmograpfication (1973)', 'url': 'https://www.whosampled.com/James-Brown/Transmograpfication/'}
+{'artist_id': 2, 'track_name': 'Public Enemy No. 1 (1972)', 'url': 'https://www.whosampled.com/James-Brown/Public-Enemy-No.-1/'}
+{'artist_id': 2, 'track_name': 'Backstabbers (1975)\nby Lyn Collins feat. James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Backstabbers/'}
+{'artist_id': 2, 'track_name': 'For Goodness Sake, Look at Those Cakes (1978)', 'url': 'https://www.whosampled.com/James-Brown/For-Goodness-Sake,-Look-at-Those-Cakes/'}
+{'artist_id': 2, 'track_name': "Doing It to Death (1973)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/Doing-It-to-Death/'}
+{'artist_id': 2, 'track_name': "I'm Broken Hearted (1975)", 'url': 'https://www.whosampled.com/James-Brown/I%27m-Broken-Hearted/'}
+{'artist_id': 2, 'track_name': 'Get Up Offa That Thing (Ali Dee Remix) (2005)', 'url': 'https://www.whosampled.com/James-Brown/Get-Up-Offa-That-Thing-(Ali-Dee-Remix)/'}
+{'artist_id': 2, 'track_name': 'Love Me Tender (1978)', 'url': 'https://www.whosampled.com/James-Brown/Love-Me-Tender/'}
+{'artist_id': 2, 'track_name': 'James Brown Interview (1987)\nScene from Sonya Live! In LA (TV Show)', 'url': 'https://www.whosampled.com/tv/Sonya-Live!-In-LA/James-Brown-Interview/'}
+{'artist_id': 2, 'track_name': 'You Mother You (1971)', 'url': 'https://www.whosampled.com/James-Brown/You-Mother-You/'}
+{'artist_id': 2, 'track_name': "I Got the Feelin' (1968)", 'url': 'https://www.whosampled.com/James-Brown/I-Got-the-Feelin%27/'}
+{'artist_id': 2, 'track_name': "Introduction to Say It Loud - I'm Black and I'm Proud (Live) (1998)", 'url': 'https://www.whosampled.com/James-Brown/Introduction-to-Say-It-Loud-I%27m-Black-and-I%27m-Proud-(Live)/'}
+{'artist_id': 2, 'track_name': 'There Was a Time (1969)', 'url': 'https://www.whosampled.com/James-Brown/There-Was-a-Time/'}
+{'artist_id': 2, 'track_name': 'No Static (The 8 Minute Full Force Def Mix) (1988)\nby James Brown feat. Full Force', 'url': 'https://www.whosampled.com/James-Brown/No-Static-(The-8-Minute-Full-Force-Def-Mix)/'}
+{'artist_id': 2, 'track_name': "I Don't Care (1964)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/I-Don%27t-Care/'}
+{'artist_id': 2, 'track_name': 'I Cried (1971)', 'url': 'https://www.whosampled.com/James-Brown/I-Cried/'}
+{'artist_id': 2, 'track_name': "I Need Help (I Can't Do It Alone) (1972)", 'url': 'https://www.whosampled.com/James-Brown/I-Need-Help-(I-Can%27t-Do-It-Alone)/'}
+{'artist_id': 2, 'track_name': 'If You Got a Love You Better (Hold on to It) (1971)\nby Bobby Byrd\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bobby-Byrd/If-You-Got-a-Love-You-Better-(Hold-on-to-It)/'}
+{'artist_id': 2, 'track_name': 'Sex Machine (Readymade Jazz Defector) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Sex-Machine-(Readymade-Jazz-Defector)/'}
+{'artist_id': 2, 'track_name': 'Payback (The Final Mixdown) (1988)', 'url': 'https://www.whosampled.com/James-Brown/Payback-(The-Final-Mixdown)/'}
+{'artist_id': 2, 'track_name': 'Soul Power (Live) (1971)', 'url': 'https://www.whosampled.com/James-Brown/Soul-Power-(Live)/'}
+{'artist_id': 2, 'track_name': 'Funky Broadway (1967)', 'url': 'https://www.whosampled.com/James-Brown/Funky-Broadway/'}
+{'artist_id': 2, 'track_name': 'Make It Funky (Live) (1971)', 'url': 'https://www.whosampled.com/James-Brown/Make-It-Funky-(Live)/'}
+{'artist_id': 2, 'track_name': 'Bodyheat (1976)', 'url': 'https://www.whosampled.com/James-Brown/Bodyheat/'}
+{'artist_id': 2, 'track_name': 'From the Love Side (1969)\nby Hank Ballard & the Midnighters\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Hank-Ballard-%26-the-Midnighters/From-the-Love-Side/'}
+{'artist_id': 2, 'track_name': "Ain't That a Groove (Part 1) (1966)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/Ain%27t-That-a-Groove-(Part-1)/'}
+{'artist_id': 2, 'track_name': 'Hot Pants (She Got to Use What She Got to Get What She Wants) (1971)', 'url': 'https://www.whosampled.com/James-Brown/Hot-Pants-(She-Got-to-Use-What-She-Got-to-Get-What-She-Wants)/'}
+{'artist_id': 2, 'track_name': 'Goliath (1986)', 'url': 'https://www.whosampled.com/James-Brown/Goliath/'}
+{'artist_id': 2, 'track_name': "I Can't Stand It (1974)", 'url': 'https://www.whosampled.com/James-Brown/I-Can%27t-Stand-It/'}
+{'artist_id': 2, 'track_name': 'Mr. Big Stuff (1975)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Mr.-Big-Stuff/'}
+{'artist_id': 2, 'track_name': 'Woman (1976)', 'url': 'https://www.whosampled.com/James-Brown/Woman/'}
+{'artist_id': 2, 'track_name': 'A Man Has to Go Back to the Cross Road Before He Finds Himself (1974)', 'url': 'https://www.whosampled.com/James-Brown/A-Man-Has-to-Go-Back-to-the-Cross-Road-Before-He-Finds-Himself/'}
+{'artist_id': 2, 'track_name': 'Super Good (1970)\nby Vicki Anderson\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Vicki-Anderson/Super-Good/'}
+{'artist_id': 2, 'track_name': 'Never Gonna Give You Up (1972)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Never-Gonna-Give-You-Up/'}
+{'artist_id': 2, 'track_name': 'I Know You Got Soul (1988) (1988)\nby Bobby Byrd\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bobby-Byrd/I-Know-You-Got-Soul-(1988)/'}
+{'artist_id': 2, 'track_name': 'Give It Up or Turnit a Loose (Instrumental Version) (1970)', 'url': 'https://www.whosampled.com/James-Brown/Give-It-Up-or-Turnit-a-Loose-(Instrumental-Version)/'}
+{'artist_id': 2, 'track_name': "The Payback Mix (Keep on Doing What You're Doing but Make It Funky) (1988)", 'url': 'https://www.whosampled.com/James-Brown/The-Payback-Mix-(Keep-on-Doing-What-You%27re-Doing-but-Make-It-Funky)/'}
+{'artist_id': 2, 'track_name': 'Problems (1975)', 'url': 'https://www.whosampled.com/James-Brown/Problems/'}
+{'artist_id': 2, 'track_name': 'Any Day Now (1969)', 'url': 'https://www.whosampled.com/James-Brown/Any-Day-Now/'}
+{'artist_id': 2, 'track_name': 'Sometime (1974)', 'url': 'https://www.whosampled.com/James-Brown/Sometime/'}
+{'artist_id': 2, 'track_name': 'Living in America (1985)', 'url': 'https://www.whosampled.com/James-Brown/Living-in-America/'}
+{'artist_id': 2, 'track_name': 'Unity Skit 3 (1984)\nby Afrika Bambaataa and James Brown', 'url': 'https://www.whosampled.com/Afrika-Bambaataa/Unity-Skit-3/'}
+{'artist_id': 2, 'track_name': 'Try Me (1959)', 'url': 'https://www.whosampled.com/James-Brown/Try-Me/'}
+{'artist_id': 2, 'track_name': 'I Feel Alright (1968)', 'url': 'https://www.whosampled.com/James-Brown/I-Feel-Alright/'}
+{'artist_id': 2, 'track_name': 'In the Middle (1969)\nby Marva Whitney\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Marva-Whitney/In-the-Middle/'}
+{'artist_id': 2, 'track_name': 'Why Am I Treated So Bad (1969)', 'url': 'https://www.whosampled.com/James-Brown/Why-Am-I-Treated-So-Bad/'}
+{'artist_id': 2, 'track_name': "Brother Rapp/Ain't It Funky Now (Live) (1991)", 'url': 'https://www.whosampled.com/James-Brown/Brother-RappAin%27t-It-Funky-Now-(Live)/'}
+{'artist_id': 2, 'track_name': 'The Bells (1961)', 'url': 'https://www.whosampled.com/James-Brown/The-Bells/'}
+{'artist_id': 2, 'track_name': 'Kiss in 77 (1976)', 'url': 'https://www.whosampled.com/James-Brown/Kiss-in-77/'}
+{'artist_id': 2, 'track_name': 'Hot Pants (She Got to Use What She Got to Get What She Wants) (Live) (1971)', 'url': 'https://www.whosampled.com/James-Brown/Hot-Pants-(She-Got-to-Use-What-She-Got-to-Get-What-She-Wants)-(Live)/'}
+{'artist_id': 2, 'track_name': 'Get Up, Get Into It, Get Involved (Live) (1971)', 'url': 'https://www.whosampled.com/James-Brown/Get-Up,-Get-Into-It,-Get-Involved-(Live)/'}
+{'artist_id': 2, 'track_name': 'Reach Out for Me (1972)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Reach-Out-for-Me/'}
+{'artist_id': 2, 'track_name': "These Are the JB's (1972)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/These-Are-the-JB%27s/'}
+{'artist_id': 2, 'track_name': "Turn Me Loose, I'm Dr. Feelgood (1986)", 'url': 'https://www.whosampled.com/James-Brown/Turn-Me-Loose,-I%27m-Dr.-Feelgood/'}
+{'artist_id': 2, 'track_name': 'Who Can I Turn To (1974)', 'url': 'https://www.whosampled.com/James-Brown/Who-Can-I-Turn-To/'}
+{'artist_id': 2, 'track_name': 'Summertime (1977)\nby James Brown and Martha High', 'url': 'https://www.whosampled.com/James-Brown/Summertime/'}
+{'artist_id': 2, 'track_name': 'Honky Tonk Popcorn (1969)\nby Bill Doggett\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bill-Doggett/Honky-Tonk-Popcorn/'}
+{'artist_id': 2, 'track_name': 'Cold Sweat (Live) (1998)', 'url': 'https://www.whosampled.com/James-Brown/Cold-Sweat-(Live)/'}
+{'artist_id': 2, 'track_name': "Keep on Doin' What You're Doin' (1972)\nby Bobby Byrd\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Bobby-Byrd/Keep-on-Doin%27-What-You%27re-Doin%27/'}
+{'artist_id': 2, 'track_name': 'Out of Sight (1964)', 'url': 'https://www.whosampled.com/James-Brown/Out-of-Sight/'}
+{'artist_id': 2, 'track_name': '40th Anniversary Mix (1997)\nby James Brown feat. Funkmaster Flex and Fred "Bugsy" Buggs', 'url': 'https://www.whosampled.com/James-Brown/40th-Anniversary-Mix/'}
+{'artist_id': 2, 'track_name': 'Bewildered (1961)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Bewildered/'}
+{'artist_id': 2, 'track_name': "Don't Fence Me In (1974)", 'url': 'https://www.whosampled.com/James-Brown/Don%27t-Fence-Me-In/'}
+{'artist_id': 2, 'track_name': "It's a Man's, Man's, Man's World (Live) (1983)\nby James Brown and Michael Jackson", 'url': 'https://www.whosampled.com/James-Brown/It%27s-a-Man%27s,-Man%27s,-Man%27s-World-(Live)/'}
+{'artist_id': 2, 'track_name': 'Nature Boy (1967)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Nature-Boy/'}
+{'artist_id': 2, 'track_name': 'Steal Away (1970)\nby Leon Austin\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Leon-Austin/Steal-Away/'}
+{'artist_id': 2, 'track_name': 'Shoot Your Shot (1973)', 'url': 'https://www.whosampled.com/James-Brown/Shoot-Your-Shot/'}
+{'artist_id': 2, 'track_name': "Papa's Got a Brand New Bag (1975 Version) (1975)", 'url': 'https://www.whosampled.com/James-Brown/Papa%27s-Got-a-Brand-New-Bag-(1975-Version)/'}
+{'artist_id': 2, 'track_name': 'How Long Can I Keep It Up (1975)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/How-Long-Can-I-Keep-It-Up/'}
+{'artist_id': 2, 'track_name': "You Sure Love to Ball (1974)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/You-Sure-Love-to-Ball/'}
+{'artist_id': 2, 'track_name': 'Give It Up or Turnit a Loose (1974)\nby Lyn Collins\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Lyn-Collins/Give-It-Up-or-Turnit-a-Loose/'}
+{'artist_id': 2, 'track_name': "Funky Music Is My Style (1974)\nby Fred & the New J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-%26-the-New-J.B.%27s/Funky-Music-Is-My-Style/'}
+{'artist_id': 2, 'track_name': 'The Chase (1977)', 'url': 'https://www.whosampled.com/James-Brown/The-Chase/'}
+{'artist_id': 2, 'track_name': "I Guess I'll Have to Cry, Cry, Cry (1968)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/I-Guess-I%27ll-Have-to-Cry,-Cry,-Cry/'}
+{'artist_id': 2, 'track_name': "I Can't Stand Myself (When You Touch Me) (1968)", 'url': 'https://www.whosampled.com/James-Brown/I-Can%27t-Stand-Myself-(When-You-Touch-Me)/'}
+{'artist_id': 2, 'track_name': 'Sunny (Funk Master J.B vs. Funk Master J.S Hardboiled Remix) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Sunny-(Funk-Master-J.B-vs.-Funk-Master-J.S-Hardboiled-Remix)/'}
+{'artist_id': 2, 'track_name': "I'm Satisfied (1976)", 'url': 'https://www.whosampled.com/James-Brown/I%27m-Satisfied/'}
+{'artist_id': 2, 'track_name': 'Get on the Good Foot (Mr. Drunk Remix) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Get-on-the-Good-Foot-(Mr.-Drunk-Remix)/'}
+{'artist_id': 2, 'track_name': 'Tell Me That You Love Me (1967)', 'url': 'https://www.whosampled.com/James-Brown/Tell-Me-That-You-Love-Me/'}
+{'artist_id': 2, 'track_name': "I've Got to Change (1959)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/I%27ve-Got-to-Change/'}
+{'artist_id': 2, 'track_name': "Breakin' Bread (1974)\nby Fred & the New J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-%26-the-New-J.B.%27s/Breakin%27-Bread/'}
+{'artist_id': 2, 'track_name': 'What Do I Have to Do to Prove My Love to You (1968)\nby Marva Whitney\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Marva-Whitney/What-Do-I-Have-to-Do-to-Prove-My-Love-to-You/'}
+{'artist_id': 2, 'track_name': 'Let Yourself Go (1967)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Let-Yourself-Go/'}
+{'artist_id': 2, 'track_name': "You're Still Out of Sight (1969)", 'url': 'https://www.whosampled.com/James-Brown/You%27re-Still-Out-of-Sight/'}
+{'artist_id': 2, 'track_name': 'How You Gonna Get Respect (Part 1) (1968)\nby Hank Ballard\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Hank-Ballard/How-You-Gonna-Get-Respect-(Part-1)/'}
+{'artist_id': 2, 'track_name': "I Need Help (I Can't Do It Alone) (1970)\nby Bobby Byrd\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Bobby-Byrd/I-Need-Help-(I-Can%27t-Do-It-Alone)/'}
+{'artist_id': 2, 'track_name': 'Sex Machine Part I and Part II (1975)', 'url': 'https://www.whosampled.com/James-Brown/Sex-Machine-Part-I-and-Part-II/'}
+{'artist_id': 2, 'track_name': 'Get It Together (Part 1) (1967)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Get-It-Together-(Part-1)/'}
+{'artist_id': 2, 'track_name': "Can't Get Any Harder (1992)", 'url': 'https://www.whosampled.com/James-Brown/Can%27t-Get-Any-Harder/'}
+{'artist_id': 2, 'track_name': 'Brother Rapp (1971)', 'url': 'https://www.whosampled.com/James-Brown/Brother-Rapp/'}
+{'artist_id': 2, 'track_name': 'Time Is Running Out Fast (1973)', 'url': 'https://www.whosampled.com/James-Brown/Time-Is-Running-Out-Fast/'}
+{'artist_id': 2, 'track_name': 'Drowning in the Sea of Love (1974)\nby Maceo Parker\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Maceo-Parker/Drowning-in-the-Sea-of-Love/'}
+{'artist_id': 2, 'track_name': "I'm Real (1988)\nby James Brown and Full Force", 'url': 'https://www.whosampled.com/James-Brown/I%27m-Real/'}
+{'artist_id': 2, 'track_name': 'Get Up Offa That Thing (Splats & Star Mix) (2008)', 'url': 'https://www.whosampled.com/James-Brown/Get-Up-Offa-That-Thing-(Splats-%26-Star-Mix)/'}
+{'artist_id': 2, 'track_name': '25 Miles (1969)\nby Bill Doggett\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bill-Doggett/25-Miles/'}
+{'artist_id': 2, 'track_name': 'If I Ruled the World (1968)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/If-I-Ruled-the-World/'}
+{'artist_id': 2, 'track_name': "It's Too Funky in Here (1979)", 'url': 'https://www.whosampled.com/James-Brown/It%27s-Too-Funky-in-Here/'}
+{'artist_id': 2, 'track_name': 'You Can Have Watergate Just Gimme Some Bucks and I\'ll Be Straight (7" Version) (1973)\nby Fred Wesley and The J.B.\'s\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Fred-Wesley/You-Can-Have-Watergate-Just-Gimme-Some-Bucks-and-I%27ll-Be-Straight-(7-Version)/'}
+{'artist_id': 2, 'track_name': 'Jimmy Go Boom (2006)', 'url': 'https://www.whosampled.com/James-Brown/Jimmy-Go-Boom/'}
+{'artist_id': 2, 'track_name': 'The Night Time Is the Right Time (1983)', 'url': 'https://www.whosampled.com/James-Brown/The-Night-Time-Is-the-Right-Time/'}
+{'artist_id': 2, 'track_name': 'Soul Power (Jungle Funk Mix) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Soul-Power-(Jungle-Funk-Mix)/'}
+{'artist_id': 2, 'track_name': "This Girl's in Love With You (1970)\nby Marva Whitney\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Marva-Whitney/This-Girl%27s-in-Love-With-You/'}
+{'artist_id': 2, 'track_name': "Rice 'N' Ribs (1974)\nby Fred & the New J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-%26-the-New-J.B.%27s/Rice-%27N%27-Ribs/'}
+{'artist_id': 2, 'track_name': 'You Got to Have a Job (1969)\nby Marva Whitney and James Brown', 'url': 'https://www.whosampled.com/Marva-Whitney/You-Got-to-Have-a-Job/'}
+{'artist_id': 2, 'track_name': 'The Soul of J.B. (1968)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/The-Soul-of-J.B./'}
+{'artist_id': 2, 'track_name': 'Call Me Super Bad (Cornelius Re-Work) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Call-Me-Super-Bad-(Cornelius-Re-Work)/'}
+{'artist_id': 2, 'track_name': "She's the One (1988)", 'url': 'https://www.whosampled.com/James-Brown/She%27s-the-One/'}
+{'artist_id': 2, 'track_name': 'The Crickets Sing (1969)\nby Dee Felice Trio\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Dee-Felice-Trio/The-Crickets-Sing/'}
+{'artist_id': 2, 'track_name': "Money Won't Change You (1966)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/Money-Won%27t-Change-You/'}
+{'artist_id': 2, 'track_name': 'Song for My Father (1965)', 'url': 'https://www.whosampled.com/James-Brown/Song-for-My-Father/'}
+{'artist_id': 2, 'track_name': 'Lost Someone - Live at the Apollo Theater/1962 (1963)', 'url': 'https://www.whosampled.com/James-Brown/Lost-Someone-Live-at-the-Apollo-Theater1962/'}
+{'artist_id': 2, 'track_name': "You're Welcome, Stop on By (1975)\nby Momie-O\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Momie-O/You%27re-Welcome,-Stop-on-By/'}
+{'artist_id': 2, 'track_name': 'Think (1960)', 'url': 'https://www.whosampled.com/James-Brown/Think/'}
+{'artist_id': 2, 'track_name': 'Georgia on My Mind (1970)', 'url': 'https://www.whosampled.com/James-Brown/Georgia-on-My-Mind/'}
+{'artist_id': 2, 'track_name': "I'm Paying Taxes (What Am I Buyin')? (1974)\nby Fred Wesley\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/I%27m-Paying-Taxes-(What-Am-I-Buyin%27)%3F/'}
+{'artist_id': 2, 'track_name': "You're My Only Love (1981)", 'url': 'https://www.whosampled.com/James-Brown/You%27re-My-Only-Love/'}
+{'artist_id': 2, 'track_name': 'The Drunk (1970)', 'url': 'https://www.whosampled.com/James-Brown/The-Drunk/'}
+{'artist_id': 2, 'track_name': "Back Stabbers (1972)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/Back-Stabbers/'}
+{'artist_id': 2, 'track_name': 'World (Part 1 & 2) (1969)', 'url': 'https://www.whosampled.com/James-Brown/World-(Part-1-%26-2)/'}
+{'artist_id': 2, 'track_name': 'Hustle!!! (Dead on It) (1975)', 'url': 'https://www.whosampled.com/James-Brown/Hustle!!!-(Dead-on-It)/'}
+{'artist_id': 2, 'track_name': "I Got a Good Thing (And I Ain't Gonna Let It Go) (1973)", 'url': 'https://www.whosampled.com/James-Brown/I-Got-a-Good-Thing-(And-I-Ain%27t-Gonna-Let-It-Go)/'}
+{'artist_id': 2, 'track_name': 'Prisoner of Love (1963)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Prisoner-of-Love/'}
+{'artist_id': 2, 'track_name': 'Give It Up or Turnit a Loose (Fantasista Re-Formation) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Give-It-Up-or-Turnit-a-Loose-(Fantasista-Re-Formation)/'}
+{'artist_id': 2, 'track_name': "Use Me (1972)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/Use-Me/'}
+{'artist_id': 2, 'track_name': 'There It Is (Live) (1988)', 'url': 'https://www.whosampled.com/James-Brown/There-It-Is-(Live)/'}
+{'artist_id': 2, 'track_name': "I Don't Mind (1961)", 'url': 'https://www.whosampled.com/James-Brown/I-Don%27t-Mind/'}
+{'artist_id': 2, 'track_name': 'I Never Loved a Man the Way I Love You (1967)', 'url': 'https://www.whosampled.com/James-Brown/I-Never-Loved-a-Man-the-Way-I-Love-You/'}
+{'artist_id': 2, 'track_name': 'Make It Funky 2000 (2002)', 'url': 'https://www.whosampled.com/James-Brown/Make-It-Funky-2000/'}
+{'artist_id': 2, 'track_name': 'Mashed Potato Popcorn (1969)', 'url': 'https://www.whosampled.com/James-Brown/Mashed-Potato-Popcorn/'}
+{'artist_id': 2, 'track_name': 'Spinning Wheel (1970)', 'url': 'https://www.whosampled.com/James-Brown/Spinning-Wheel/'}
+{'artist_id': 2, 'track_name': 'Escape-Ism (Live) (1971)', 'url': 'https://www.whosampled.com/James-Brown/Escape-Ism-(Live)/'}
+{'artist_id': 2, 'track_name': 'There Was a Time (Kenny Dope Remix) (2008)', 'url': 'https://www.whosampled.com/James-Brown/There-Was-a-Time-(Kenny-Dope-Remix)/'}
+{'artist_id': 2, 'track_name': 'Summer in the City (1969)\nby Dee Felice Trio\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Dee-Felice-Trio/Summer-in-the-City/'}
+{'artist_id': 2, 'track_name': 'Vonshelia (1966)', 'url': 'https://www.whosampled.com/James-Brown/Vonshelia/'}
+{'artist_id': 2, 'track_name': 'Give the Woman a Chance (1974)\nby Sweet Charles\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Sweet-Charles/Give-the-Woman-a-Chance/'}
+{'artist_id': 2, 'track_name': 'How Do You Stop (1986)', 'url': 'https://www.whosampled.com/James-Brown/How-Do-You-Stop/'}
+{'artist_id': 2, 'track_name': "Can't Git Enuf (1988)", 'url': 'https://www.whosampled.com/James-Brown/Can%27t-Git-Enuf/'}
+{'artist_id': 2, 'track_name': 'Dead on It (1975)', 'url': 'https://www.whosampled.com/James-Brown/Dead-on-It/'}
+{'artist_id': 2, 'track_name': 'Superbad, Superslick Part I (1975)', 'url': 'https://www.whosampled.com/James-Brown/Superbad,-Superslick-Part-I/'}
+{'artist_id': 2, 'track_name': "It's Magic (1970)", 'url': 'https://www.whosampled.com/James-Brown/It%27s-Magic/'}
+{'artist_id': 2, 'track_name': 'Lost Someone (1961)', 'url': 'https://www.whosampled.com/James-Brown/Lost-Someone/'}
+{'artist_id': 2, 'track_name': "Sayin' It and Doin' It (1974)", 'url': 'https://www.whosampled.com/James-Brown/Sayin%27-It-and-Doin%27-It/'}
+{'artist_id': 2, 'track_name': "J.B. Shout (1972)\nby Fred Wesley and The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Fred-Wesley/J.B.-Shout/'}
+{'artist_id': 2, 'track_name': 'Dedicated to the One I Love (1974)\nby "Sweet" Charles Sherrell\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/%22Sweet%22-Charles-Sherrell/Dedicated-to-the-One-I-Love/'}
+{'artist_id': 2, 'track_name': 'Christmas Is Coming (1968)', 'url': 'https://www.whosampled.com/James-Brown/Christmas-Is-Coming/'}
+{'artist_id': 2, 'track_name': "More Peas (1973)\nby The J.B.'s\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/The-J.B.%27s/More-Peas/'}
+{'artist_id': 2, 'track_name': 'Deep in It (1975)', 'url': 'https://www.whosampled.com/James-Brown/Deep-in-It/'}
+{'artist_id': 2, 'track_name': 'Deep in It (Lost and Found, at Last Mix) (2002)', 'url': 'https://www.whosampled.com/James-Brown/Deep-in-It-(Lost-and-Found,-at-Last-Mix)/'}
+{'artist_id': 2, 'track_name': "Love Don't Love Nobody (1961)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/Love-Don%27t-Love-Nobody/'}
+{'artist_id': 2, 'track_name': 'Unity Part 6 (World III) (1984)\nby Afrika Bambaataa and James Brown', 'url': 'https://www.whosampled.com/Afrika-Bambaataa/Unity-Part-6-(World-III)/'}
+{'artist_id': 2, 'track_name': 'September Song (1970)', 'url': 'https://www.whosampled.com/James-Brown/September-Song/'}
+{'artist_id': 2, 'track_name': 'There (1964)', 'url': 'https://www.whosampled.com/James-Brown/There/'}
+{'artist_id': 2, 'track_name': 'Think (1967)\nby Vicki Anderson and James Brown', 'url': 'https://www.whosampled.com/Vicki-Anderson/Think/'}
+{'artist_id': 2, 'track_name': 'Rapp Payback (Where Iz Moses) (1980)', 'url': 'https://www.whosampled.com/James-Brown/Rapp-Payback-(Where-Iz-Moses)/'}
+{'artist_id': 2, 'track_name': 'Living in America (R & B Dance Version) (1985)', 'url': 'https://www.whosampled.com/James-Brown/Living-in-America-(R-%26-B-Dance-Version)/'}
+{'artist_id': 2, 'track_name': "You Can't Keep a Good Man Down (1983)", 'url': 'https://www.whosampled.com/James-Brown/You-Can%27t-Keep-a-Good-Man-Down/'}
+{'artist_id': 2, 'track_name': 'Eyesight (1978)', 'url': 'https://www.whosampled.com/James-Brown/Eyesight/'}
+{'artist_id': 2, 'track_name': "Don't Make Me Over (1974)\nby Lyn Collins\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Lyn-Collins/Don%27t-Make-Me-Over/'}
+{'artist_id': 2, 'track_name': 'I Feel Good (1975)', 'url': 'https://www.whosampled.com/James-Brown/I-Feel-Good/'}
+{'artist_id': 2, 'track_name': 'Strangers in the Night (1968)', 'url': 'https://www.whosampled.com/James-Brown/Strangers-in-the-Night/'}
+{'artist_id': 2, 'track_name': "I'll Go Crazy (1960)\nby James Brown and The Flamous Flames", 'url': 'https://www.whosampled.com/James-Brown/I%27ll-Go-Crazy/'}
+{'artist_id': 2, 'track_name': 'All the Way (1968)', 'url': 'https://www.whosampled.com/James-Brown/All-the-Way/'}
+{'artist_id': 2, 'track_name': 'Sleigh Ride (1999)', 'url': 'https://www.whosampled.com/James-Brown/Sleigh-Ride/'}
+{'artist_id': 2, 'track_name': "I Made a Mistake (Because It's Only You) (Part 1) (1969)\nby Marva Whitney\nProducer credit: James Brown", 'url': 'https://www.whosampled.com/Marva-Whitney/I-Made-a-Mistake-(Because-It%27s-Only-You)-(Part-1)/'}
+{'artist_id': 2, 'track_name': 'Funk on Ah Roll (1998)', 'url': 'https://www.whosampled.com/James-Brown/Funk-on-Ah-Roll/'}
+{'artist_id': 2, 'track_name': 'Funk on Ah Roll (Bump & Flex Mix) (1999)', 'url': 'https://www.whosampled.com/James-Brown/Funk-on-Ah-Roll-(Bump-%26-Flex-Mix)/'}
+{'artist_id': 2, 'track_name': "Don't Be a Drop Out (1967)", 'url': 'https://www.whosampled.com/James-Brown/Don%27t-Be-a-Drop-Out/'}
+{'artist_id': 2, 'track_name': 'Need Your Love So Bad (1968)', 'url': 'https://www.whosampled.com/James-Brown/Need-Your-Love-So-Bad/'}
+{'artist_id': 2, 'track_name': 'Hip Hug-Her (1974)\nby The Devils\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/The-Devils/Hip-Hug-Her/'}
+{'artist_id': 2, 'track_name': "Papa's Got a Brand New Bag (2006)\nby Pat Boone and James Brown", 'url': 'https://www.whosampled.com/Pat-Boone/Papa%27s-Got-a-Brand-New-Bag/'}
+{'artist_id': 2, 'track_name': "Let's Go Get Stoned (1966)", 'url': 'https://www.whosampled.com/James-Brown/Let%27s-Go-Get-Stoned/'}
+{'artist_id': 2, 'track_name': 'The Man in the Glass (Part 1) (1970)', 'url': 'https://www.whosampled.com/James-Brown/The-Man-in-the-Glass-(Part-1)/'}
+{'artist_id': 2, 'track_name': 'Mother Popcorn (Live) (1970)', 'url': 'https://www.whosampled.com/James-Brown/Mother-Popcorn-(Live)/'}
+{'artist_id': 2, 'track_name': 'There Was a Time (Panic Bomber Remix) (2014)', 'url': 'https://www.whosampled.com/James-Brown/There-Was-a-Time-(Panic-Bomber-Remix)/'}
+{'artist_id': 2, 'track_name': "Good Good Lovin' (1959)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/Good-Good-Lovin%27/'}
+{'artist_id': 2, 'track_name': "Its a Man's Man's Man's World (1966)", 'url': 'https://www.whosampled.com/James-Brown/Its-a-Man%27s-Man%27s-Man%27s-World/'}
+{'artist_id': 2, 'track_name': "Let's Make Christmas Mean Something This Year (Parts 1 & 2) (1995)", 'url': 'https://www.whosampled.com/James-Brown/Let%27s-Make-Christmas-Mean-Something-This-Year-(Parts-1-%26-2)/'}
+{'artist_id': 2, 'track_name': 'I Like It Like That (1974)\nby "Sweet" Charles Sherrell\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/%22Sweet%22-Charles-Sherrell/I-Like-It-Like-That/'}
+{'artist_id': 2, 'track_name': 'Time After Time (1969)', 'url': 'https://www.whosampled.com/James-Brown/Time-After-Time/'}
+{'artist_id': 2, 'track_name': 'Every Beat of My Heart (1963)', 'url': 'https://www.whosampled.com/James-Brown/Every-Beat-of-My-Heart/'}
+{'artist_id': 2, 'track_name': 'Honky Tonk (1969)\nby Bill Doggett\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Bill-Doggett/Honky-Tonk/'}
+{'artist_id': 2, 'track_name': 'Santa Claus Go Straight to the Ghetto (1968)', 'url': 'https://www.whosampled.com/James-Brown/Santa-Claus-Go-Straight-to-the-Ghetto/'}
+{'artist_id': 2, 'track_name': 'Oh Happy Day (1969)\nby Dee Felice Trio\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Dee-Felice-Trio/Oh-Happy-Day/'}
+{'artist_id': 2, 'track_name': 'Three Hearts in a Tangle (1966)', 'url': 'https://www.whosampled.com/James-Brown/Three-Hearts-in-a-Tangle/'}
+{'artist_id': 2, 'track_name': 'Unity Skit 4 (1984)\nby Afrika Bambaataa and James Brown', 'url': 'https://www.whosampled.com/Afrika-Bambaataa/Unity-Skit-4/'}
+{'artist_id': 2, 'track_name': 'Static (Full Force Remix) (1988)\nby James Brown feat. Full Force', 'url': 'https://www.whosampled.com/James-Brown/Static-(Full-Force-Remix)/'}
+{'artist_id': 2, 'track_name': 'Funk on Ah Roll (Ruff Driverz Tungsten Tip Mix) (1999)', 'url': 'https://www.whosampled.com/James-Brown/Funk-on-Ah-Roll-(Ruff-Driverz-Tungsten-Tip-Mix)/'}
+{'artist_id': 2, 'track_name': 'When the Saints Go Marching In (1974)', 'url': 'https://www.whosampled.com/James-Brown/When-the-Saints-Go-Marching-In/'}
+{'artist_id': 2, 'track_name': "Hold On, I'm Comin' (1966)", 'url': 'https://www.whosampled.com/James-Brown/Hold-On,-I%27m-Comin%27/'}
+{'artist_id': 2, 'track_name': 'It Had to Be You (1968)', 'url': 'https://www.whosampled.com/James-Brown/It-Had-to-Be-You/'}
+{'artist_id': 2, 'track_name': 'I Wanna Be Around (1965)', 'url': 'https://www.whosampled.com/James-Brown/I-Wanna-Be-Around/'}
+{'artist_id': 2, 'track_name': "Can't Get Any Harder (Universal Hip Hop Mix) (1993)", 'url': 'https://www.whosampled.com/James-Brown/Can%27t-Get-Any-Harder-(Universal-Hip-Hop-Mix)/'}
+{'artist_id': 2, 'track_name': 'Waiting in Vain (1963)', 'url': 'https://www.whosampled.com/James-Brown/Waiting-in-Vain/'}
+{'artist_id': 2, 'track_name': 'Our Day Will Come (1966)', 'url': 'https://www.whosampled.com/James-Brown/Our-Day-Will-Come/'}
+{'artist_id': 2, 'track_name': 'For Once in My Life (1970)', 'url': 'https://www.whosampled.com/James-Brown/For-Once-in-My-Life/'}
+{'artist_id': 2, 'track_name': 'By the Time I Get to Phoenix (1971)', 'url': 'https://www.whosampled.com/James-Brown/By-the-Time-I-Get-to-Phoenix/'}
+{'artist_id': 2, 'track_name': 'James Brown & His Fans at the Boston Garden (Live) (1968)', 'url': 'https://www.whosampled.com/James-Brown/James-Brown-%26-His-Fans-at-the-Boston-Garden-(Live)/'}
+{'artist_id': 2, 'track_name': "James Brown's Boo-Ga-Loo (1966)", 'url': 'https://www.whosampled.com/James-Brown/James-Brown%27s-Boo-Ga-Loo/'}
+{'artist_id': 2, 'track_name': 'Kansas City (1967)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Kansas-City/'}
+{'artist_id': 2, 'track_name': 'Have Mercy Baby (1962)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/Have-Mercy-Baby/'}
+{'artist_id': 2, 'track_name': "Good Rockin' Tonight (1967)\nby James Brown and The Famous Flames", 'url': 'https://www.whosampled.com/James-Brown/Good-Rockin%27-Tonight/'}
+{'artist_id': 2, 'track_name': 'Funk on Ah Roll (Rhythm Masters Mix) (2000)', 'url': 'https://www.whosampled.com/James-Brown/Funk-on-Ah-Roll-(Rhythm-Masters-Mix)/'}
+{'artist_id': 2, 'track_name': 'Funk on Ah Roll (Olav Basoski Mix) (2000)', 'url': 'https://www.whosampled.com/James-Brown/Funk-on-Ah-Roll-(Olav-Basoski-Mix)/'}
+{'artist_id': 2, 'track_name': 'Both Sides Now (1969)\nby Dee Felice Trio\nProducer credit: James Brown', 'url': 'https://www.whosampled.com/Dee-Felice-Trio/Both-Sides-Now/'}
+{'artist_id': 2, 'track_name': 'For You My Love (1964)', 'url': 'https://www.whosampled.com/James-Brown/For-You-My-Love/'}
+{'artist_id': 2, 'track_name': 'These Foolish Things (1963)\nby James Brown and The Famous Flames', 'url': 'https://www.whosampled.com/James-Brown/These-Foolish-Things/'}
+{'artist_id': 2, 'track_name': 'Let It Be Me (1971)\nby James Brown feat. Vicki Anderson', 'url': 'https://www.whosampled.com/James-Brown/Let-It-Be-Me/'}
+{'artist_id': 2, 'track_name': "Can't Get Any Harder (Clivilles & Cole House of Soul Mix) (1993)", 'url': 'https://www.whosampled.com/James-Brown/Can%27t-Get-Any-Harder-(Clivilles-%26-Cole-House-of-Soul-Mix)/'}
+{'artist_id': 2, 'track_name': 'Somebody Changed the Lock on My Door (1964)', 'url': 'https://www.whosampled.com/James-Brown/Somebody-Changed-the-Lock-on-My-Door/'}
+{'artist_id': 2, 'track_name': "Can't Get Any Harder (C&C / Leaders of the New School Mix) (1993)", 'url': 'https://www.whosampled.com/James-Brown/Can%27t-Get-Any-Harder-(C%26C-Leaders-of-the-New-School-Mix)/'}
