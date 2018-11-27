@@ -47,6 +47,17 @@ class DatabaseInteraction():
         self :  Writes songs to database
         '''
         for song in song_urls:
+
+            if song['artist_id'] is None:
+
+                query = f"""   
+                    SELECT id FROM artists
+                    WHERE url = %s
+                            """
+                self.cur.execute(query, (song['artist_url'],))
+                self.conn.commit()
+                song['artist_id'] = list(self.cur)[0][0]
+
             query = f"""   
                 INSERT INTO songs (artist_id, name, url, scraped)
                 
@@ -58,7 +69,7 @@ class DatabaseInteraction():
                         """
             self.cur.execute(query, (
                  song["artist_id"],
-                 song["track_name"],
+                 song["name"],
                  song["url"],
                  song["url"]))
             self.conn.commit()
@@ -120,11 +131,42 @@ class DatabaseInteraction():
         query = """
                 SELECT count(*) FROM songs
                 WHERE scraped = 0
+                AND artist_id = %s
                 """
 
-        self.cur.execute(query)
+        self.cur.execute(query, (artist_id))
         self.conn.commit()
         return list(self.cur)[0][0]
+
+    
+    def contains_sample(self, song_id, sample_song_ids):
+        '''
+        Parameters
+        ----------
+        song_urls : list of dictionaries
+
+        Returns
+        -------
+        self :  Writes songs to database
+        '''
+        for song in sample_song_ids:
+            query = f"""   
+                INSERT INTO connections (song_id, sampled_by_song_id)
+                
+                SELECT %s, %s
+                        
+                WHERE %s, %s NOT IN (
+                            SELECT song_id, sampled_by_song_id FROM connections
+                            );
+                        """
+            self.cur.execute(query, (
+                 song_id,
+                 song,
+                 song_id,
+                 song))
+            self.conn.commit()
+
+
 
 
 
