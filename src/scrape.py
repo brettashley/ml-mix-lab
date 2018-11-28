@@ -8,28 +8,31 @@ from DatabaseInteraction import DatabaseInteraction
 
 url_soul_funk_disco = 'https://www.whosampled.com/genre/Soul-Funk-Disco/'
 
-def main(url):
-
-    desired_section = 'Most influential artists'
-    sel = "div#content div.divided-layout div.layout-container.leftContent div"
-
+def main(url=None, get_genre=True, get_songs=True):
+    
     s = Scraper()
     db = DatabaseInteraction()
 
-    # scrape and write artists to DB
-    artists = s.get_artist_urls(url, sel, desired_section)
-    db.write_artists(artists)
+    if get_genre:
+
+        desired_section = 'Most influential artists'
+        sel = "div#content div.divided-layout div.layout-container.leftContent div"
+
+        # scrape and write artists to DB
+        artists = s.get_artist_urls(url, sel, desired_section)
+        db.write_artists(artists)
 
     for _ in range(1):
         # get next artist to scrape
         artist = db.get_next_artist_to_scrape()
 
         # scrape artists for songs and write songs to DB
-        songs = s.get_artist_songs(artist)
-        db.write_songs(songs)
-        current_artist_id = artist['id']
-        
 
+        if get_songs:
+            songs = s.get_artist_songs(artist)
+            db.write_songs(songs)
+            current_artist_id = artist['id']
+        
         # get next song to scrape
         n_songs_to_scrape = db.count_songs_to_scrape(artist['id'])
         for _ in range(n_songs_to_scrape):
@@ -46,7 +49,7 @@ def main(url):
         
         db.update_scraped_status('artists', current_artist_id, 1)
 
-main(url_soul_funk_disco)
+main(get_genre=False, get_songs=False)
 
 
 
