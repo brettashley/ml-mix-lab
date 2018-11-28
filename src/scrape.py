@@ -28,7 +28,7 @@ def main(url):
         songs = s.get_artist_songs(artist)
         db.write_songs(songs)
         current_artist_id = artist['id']
-        db.update_scraped_status('artists', current_artist_id, 1)
+        
 
         # get next song to scrape
         n_songs_to_scrape = db.count_songs_to_scrape(artist['id'])
@@ -44,7 +44,7 @@ def main(url):
                 sample_id = db.get_song_id(song_dict['url'])
                 db.insert_contains_sample(song['id'], sample_id)
         
-
+        db.update_scraped_status('artists', current_artist_id, 1)
 
 main(url_soul_funk_disco)
 
