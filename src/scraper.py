@@ -58,7 +58,7 @@ class Scraper():
         artists : list of dictionaries for each artist name and url
         """
         self.get(url)
-
+        time.sleep(3)
         artists_section = self.find_desired_section(genre_sel, artist_section)
         artist_tiles = artists_section.find_elements_by_css_selector('li')
         artists = []
@@ -87,7 +87,6 @@ class Scraper():
         artists : list of dictionaries for each artist name and url
         """
         self.b.get(artist_url_dict['url'])
-        time.sleep(2)
         self._accept_cookies()
         tracks_list = []
 
@@ -260,7 +259,6 @@ class Scraper():
 
     def _get_samples_inferred_url(self, sampled_in_song_list, artist_list, relation):
 
-        sample_urls = []
         sel = "div#content\
             div.divided-layout\
             div.layout-container.leftContent\
