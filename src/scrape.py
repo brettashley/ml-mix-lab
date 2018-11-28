@@ -6,12 +6,13 @@ import time
 from scraper import Scraper
 from DatabaseInteraction import DatabaseInteraction
 
+url_soul_funk_disco = 'https://www.whosampled.com/genre/Soul-Funk-Disco/'
 
-# sel = "div#content div.divided-layout div.layout-container.leftContent div"
-# url = 'https://www.whosampled.com/genre/Soul-Funk-Disco/'
-# desired_section = 'Most influential artists'
+def main(url):
 
-def main():
+    desired_section = 'Most influential artists'
+    sel = "div#content div.divided-layout div.layout-container.leftContent div"
+
     s = Scraper()
     db = DatabaseInteraction()
 
@@ -45,7 +46,7 @@ def main():
         
 
 
-main()
+main(url_soul_funk_disco)
 
 
 
