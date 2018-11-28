@@ -102,7 +102,7 @@ class DatabaseInteraction():
         query = """
                 SELECT id, url FROM artists
                 WHERE scraped = 0
-                ORDER BY id DESC
+                ORDER BY id
                 LIMIT 1
                 """
 
