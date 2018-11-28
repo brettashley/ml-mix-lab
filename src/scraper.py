@@ -3,6 +3,7 @@ from selenium.webdriver import Firefox, Chrome
 import time
 import pandas as pd
 from scipy import stats 
+import urllib.parse
 
 class Scraper():
     """A web scraper specific to https://www.whosampled.com"""
@@ -131,7 +132,7 @@ class Scraper():
             page = song_url
         last_page = False
         while last_page == False:
-            self._get_samples(sampled_in_song_list, artist_list, 'Was sampled')
+            self._get_samples_inferred_url(sampled_in_song_list, artist_list, 'Was sampled')
             try:
                 self.get(page)
                 print(page)
@@ -146,7 +147,7 @@ class Scraper():
             page = song_url
         last_page = False
         while last_page == False:
-            self._get_samples(sampled_in_song_list, artist_list, 'Contains sample')
+            self._get_samples_inferred_url(sampled_in_song_list, artist_list, 'Contains sample')
             try:
                 self.get(page)
                 print(page)
@@ -256,3 +257,48 @@ class Scraper():
         except (UnboundLocalError,
                 selenium.common.exceptions.NoSuchElementException):
             return 0
+
+    def _get_samples_inferred_url(self, sampled_in_song_list, artist_list, relation):
+
+        sample_urls = []
+        sel = "div#content\
+            div.divided-layout\
+            div.layout-container.leftContent\
+            section"
+        sections = self.b.find_elements_by_css_selector(sel)
+        current_section = None
+        for section in sections:
+            try:
+                header = section.find_element_by_css_selector('header')
+                if header.text.startswith(relation):
+                    current_section = section
+            except selenium.common.exceptions.NoSuchElementException:
+                continue
+        
+        try:
+            sel = "div.listEntry.sampleEntry"
+            song_sections = current_section.find_elements_by_css_selector(sel)
+            for song in song_sections:
+                song_details = song.find_element_by_css_selector('div.details-inner')
+                
+                artist_details = song_details.find_element_by_css_selector('span.trackArtist')
+                artist_a = artist_details.find_element_by_css_selector('a')
+                artist_url = artist_a.get_attribute('href')
+                artist_dict = {'name': artist_a.text,
+                                'url': artist_a.get_attribute('href')}
+                song_name = (song_details
+                                .find_element_by_css_selector('a.trackName')
+                                .text)
+                song_url = artist_url + urllib.parse.quote(song_name.replace(' ', '-'))
+                song_dict = {'name': song_name,
+                                'url': song_url,
+                                'artist_url': artist_url,
+                                'artist_id': None}
+
+                artist_list.append(artist_dict)
+                sampled_in_song_list.append(song_dict)
+
+
+        except AttributeError:
+            return None
+            print('fjds;afjds;ah')
