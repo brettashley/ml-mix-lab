@@ -1,6 +1,7 @@
 import psycopg2
 import pandas as pd
 from psycopg2.extras import Json
+from psycopg2 import sql
 
 
 class DatabaseInteraction():
@@ -56,7 +57,7 @@ class DatabaseInteraction():
                             """
                 self.cur.execute(query, (song['artist_url'],))
                 self.conn.commit()
-                song['artist_id'] = list(self.cur)[0][0]
+                song['artist_id'] = [x for (x,) in self.cur][0]
 
             query = f"""   
                 INSERT INTO songs (artist_id, name, url, scraped)
@@ -64,7 +65,7 @@ class DatabaseInteraction():
                 SELECT %s, %s, %s, 0
                         
                 WHERE %s NOT IN (
-                            SELECT url FROM artists
+                            SELECT url FROM songs
                             );
                         """
             self.cur.execute(query, (
@@ -77,13 +78,16 @@ class DatabaseInteraction():
 
     def update_scraped_status(self, table, id_to_update, status):
         
-        query = f"""
-                UPDATE %s
+        query = """
+                UPDATE {}
                 SET scraped = %s
                 WHERE id = %s
                 ;"""
 
-        self.cur.execute(query, (table, status, id_to_update))
+        self.cur.execute(
+            sql.SQL(query)
+                .format(sql.Identifier(table))
+            , (status, id_to_update))
         self.conn.commit()
 
 
@@ -98,7 +102,7 @@ class DatabaseInteraction():
         query = """
                 SELECT id, url FROM artists
                 WHERE scraped = 0
-                ORDER BY id
+                ORDER BY id DESC
                 LIMIT 1
                 """
 
@@ -134,12 +138,12 @@ class DatabaseInteraction():
                 AND artist_id = %s
                 """
 
-        self.cur.execute(query, (artist_id))
+        self.cur.execute(query, (artist_id,))
         self.conn.commit()
-        return list(self.cur)[0][0]
+        return [x for (x,) in self.cur][0]
 
     
-    def insert_contains_sample(self, song_id, sample_song_ids):
+    def insert_contains_sample(self, song_id, sample_song_id):
         '''
         Parameters
         ----------
@@ -149,22 +153,21 @@ class DatabaseInteraction():
         -------
         self :  Writes songs to database
         '''
-        for song in sample_song_ids:
-            query = f"""   
-                INSERT INTO connections (song_id, sampled_by_song_id)
-                
-                SELECT %s, %s
-                        
-                WHERE %s, %s NOT IN (
-                            SELECT song_id, sampled_by_song_id FROM connections
-                            );
-                        """
-            self.cur.execute(query, (
-                 song_id,
-                 song,
-                 song_id,
-                 song))
-            self.conn.commit()
+        query = f"""   
+            INSERT INTO connections (song_id, sampled_by_song_id)
+            
+            SELECT %s, %s
+                    
+            WHERE (%s, %s) NOT IN (
+                        SELECT song_id, sampled_by_song_id FROM connections
+                        );
+                    """
+        self.cur.execute(query, (
+                song_id,
+                sample_song_id,
+                song_id,
+                sample_song_id))
+        self.conn.commit()
 
     def get_song_id(self, song_url):
         query = """   
