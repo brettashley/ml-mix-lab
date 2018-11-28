@@ -86,6 +86,7 @@ class Scraper():
         artists : list of dictionaries for each artist name and url
         """
         self.b.get(artist_url_dict['url'])
+        time.sleep(2)
         self._accept_cookies()
         tracks_list = []
 
@@ -108,7 +109,7 @@ class Scraper():
             a = track.find_element_by_css_selector('a')
             tracks_list.append({
                 'artist_id': artist_url_dict['id'],
-                'track_name': track.text,
+                'name': track.text,
                 'url': a.get_attribute('href')
                 })
         
@@ -122,37 +123,36 @@ class Scraper():
 
         sampled_in_song_list = []
         artist_list = []
-
         samples_song_list = []
 
         # was sampled in
-        try:
-            self._see_all('Was sampled in')
-            last_page = False
-            while last_page == False:
-                self._get_samples(sampled_in_song_list, artist_list, 'Was sampled')
-                try:
-                    self._next_page()
-                except selenium.common.exceptions.NoSuchElementException:
-                    last_page = True
-
-        except selenium.common.exceptions.NoSuchElementException:
-                self._get_samples(sampled_in_song_list, artist_list, 'Was sampled')
+        page = self._see_all('Was sampled in')
+        if page == 0:
+            page = song_url
+        last_page = False
+        while last_page == False:
+            self._get_samples(sampled_in_song_list, artist_list, 'Was sampled')
+            try:
+                self.get(page)
+                print(page)
+                page = self._next_page()
+            except selenium.common.exceptions.NoSuchElementException:
+                last_page = True
+        
 
         # samples
-        try:
-            self._see_all('Contains sample')
-            last_page = False
-            while last_page == False:
-                self._get_samples(samples_song_list, artist_list, 'Contains sample')
-                try:
-                    self._next_page()
-                except selenium.common.exceptions.NoSuchElementException:
-                    last_page = True
-
-        except selenium.common.exceptions.NoSuchElementException:
-                self._get_samples(samples_song_list, artist_list, 'Contains sample')
-        
+        page = self._see_all('Contains sample')
+        if page == 0:
+            page = song_url
+        last_page = False
+        while last_page == False:
+            self._get_samples(sampled_in_song_list, artist_list, 'Contains sample')
+            try:
+                self.get(page)
+                print(page)
+                page = self._next_page()
+            except selenium.common.exceptions.NoSuchElementException:
+                last_page = True
 
         return sampled_in_song_list, samples_song_list, artist_list
 
@@ -161,6 +161,8 @@ class Scraper():
 
         sample_urls = []
         sel = "div#content\
+               div.divided-layout\
+               div.layout-container.leftContent\
                section"
         sections = self.b.find_elements_by_css_selector(sel)
         current_section = None
@@ -172,16 +174,22 @@ class Scraper():
             except selenium.common.exceptions.NoSuchElementException:
                 continue
         sel = "div.listEntry.sampleEntry"
-        song_sections = current_section.find_elements_by_css_selector(sel)
+        try:
+            song_sections = current_section.find_elements_by_css_selector(sel)
+        except AttributeError:
+            return None
+        
         for song in song_sections:
             a = song.find_element_by_css_selector('a')
             sample_urls.append(a.get_attribute('href'))
+            print(sample_urls)
 
         for sample in sample_urls:
             artist_dict, song_dict = (
                 self._get_metadata_from_sample_page(sample, relation))
             artist_list.append(artist_dict)
             sampled_in_song_list.append(song_dict)
+            print(song_dict)
 
             
 
@@ -198,13 +206,16 @@ class Scraper():
             track_metadata = tracks_metadata[1]
         sel = "div.sampleTrackArtists a"
         artist_a = track_metadata.find_element_by_css_selector(sel)
+        artist_url = artist_a.get_attribute('href')
         artist_dict = {'name': artist_a.text,
                        'url': artist_a.get_attribute('href')}
 
         sel = "a.trackName"
         track = track_metadata.find_element_by_css_selector(sel)
         song_dict = {'name': track.text,
-                     'url': track.get_attribute('href')}
+                     'url': track.get_attribute('href'),
+                     'artist_url': artist_url,
+                     'artist_id': None}
 
         return artist_dict, song_dict
 
@@ -212,7 +223,6 @@ class Scraper():
 
     def get(self, url):
         self.b.get(url)
-        time.sleep(1)
         self._accept_cookies()
 
 
@@ -224,20 +234,25 @@ class Scraper():
         url = a.get_attribute('href')
         time.sleep(round(stats.uniform(1,3).rvs(),2))
         self.get(url)
+        return url
 
     def _see_all(self, section_starts_with):
 
-        sel = "div#content div.divided-layout\
-         div.layout-container.leftContent\
-         section \
-         header.sectionHeader"
-        sections = self.b.find_elements_by_css_selector(sel)
+        try:
+            sel = "div#content div.divided-layout\
+            div.layout-container.leftContent\
+            section \
+            header.sectionHeader"
+            sections = self.b.find_elements_by_css_selector(sel)
 
-        for section in sections:
-            if section.text.startswith(section_starts_with):
-                current_section = section
-        a = current_section.find_element_by_css_selector(
-                'header.sectionHeader a.moreButton')
-        url = a.get_attribute('href')
-        print(url)
-        self.get(url) 
+            for section in sections:
+                if section.text.startswith(section_starts_with):
+                    current_section = section
+            a = current_section.find_element_by_css_selector('a.moreButton')
+            url = a.get_attribute('href')
+            print(url)
+            self.get(url) 
+            return url
+        except (UnboundLocalError,
+                selenium.common.exceptions.NoSuchElementException):
+            return 0
