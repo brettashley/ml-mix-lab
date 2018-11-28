@@ -139,7 +139,7 @@ class DatabaseInteraction():
         return list(self.cur)[0][0]
 
     
-    def contains_sample(self, song_id, sample_song_ids):
+    def insert_contains_sample(self, song_id, sample_song_ids):
         '''
         Parameters
         ----------
@@ -165,6 +165,18 @@ class DatabaseInteraction():
                  song_id,
                  song))
             self.conn.commit()
+
+    def get_song_id(self, song_url):
+        query = """   
+                SELECT id
+                FROM songs    
+                WHERE url = %s;
+                """
+        self.cur.execute(query, (song_url,))
+        self.conn.commit()
+        return [x for (x,) in self.cur][0]
+        
+        
 
 
 
