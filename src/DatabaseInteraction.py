@@ -112,7 +112,7 @@ class DatabaseInteraction():
         return {'id' : output[0][0],
                 'url' : output[0][1]}
 
-    def get_next_song_to_scrape(self):
+    def get_next_song_to_scrape(self, artist_id):
         """ 
         Returns
         -------
@@ -121,11 +121,12 @@ class DatabaseInteraction():
         query = """
                 SELECT id, url FROM songs
                 WHERE scraped = 0
+                AND artist_id = %s
                 ORDER BY id
                 LIMIT 1
                 """
 
-        self.cur.execute(query)
+        self.cur.execute(query, (artist_id,))
         self.conn.commit()
         output = list(self.cur)
         return {'id' : output[0][0],

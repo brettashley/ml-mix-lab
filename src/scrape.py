@@ -12,6 +12,7 @@ def main(url=None, get_genre=True, get_songs=True):
     
     s = Scraper()
     db = DatabaseInteraction()
+    counter = 1
 
     if get_genre:
 
@@ -27,14 +28,14 @@ def main(url=None, get_genre=True, get_songs=True):
         artist = db.get_next_artist_to_scrape()
 
         # scrape artists for songs and write songs to DB
-        if get_songs:
+        if get_songs and counter != 1:
             songs = s.get_artist_songs(artist)
             db.write_songs(songs)
         
         # get next song to scrape
         n_songs_to_scrape = db.count_songs_to_scrape(artist['id'])
         for _ in range(n_songs_to_scrape):
-            song = db.get_next_song_to_scrape()
+            song = db.get_next_song_to_scrape(artist['id'])
             sampled_in, contains, new_artists = s.get_song_connections(song['url'])
             db.write_artists(new_artists)
             db.write_songs(sampled_in)
@@ -46,6 +47,7 @@ def main(url=None, get_genre=True, get_songs=True):
                 db.insert_contains_sample(song['id'], sample_id)
         
         db.update_scraped_status('artists', artist['id'], 1)
+        counter += 1
 
 main(get_genre=False, get_songs=True)
 
