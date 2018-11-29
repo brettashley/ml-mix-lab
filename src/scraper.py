@@ -127,29 +127,23 @@ class Scraper():
 
         # was sampled in
         page = self._see_all('Was sampled in')
-        if page == 0:
-            page = song_url
         last_page = False
         while last_page == False:
             self._get_samples_inferred_url(sampled_in_song_list, artist_list, 'Was sampled')
             try:
-                self.get(page)
-                print(page)
                 page = self._next_page()
             except selenium.common.exceptions.NoSuchElementException:
                 last_page = True
         
+        if page != 'See all button does not exist':
+            self.get(song_url)
 
         # samples
         page = self._see_all('Contains sample')
-        if page == 0:
-            page = song_url
         last_page = False
         while last_page == False:
             self._get_samples_inferred_url(sampled_in_song_list, artist_list, 'Contains sample')
             try:
-                self.get(page)
-                print(page)
                 page = self._next_page()
             except selenium.common.exceptions.NoSuchElementException:
                 last_page = True
@@ -224,6 +218,7 @@ class Scraper():
     def get(self, url):
         self.b.get(url)
         self._accept_cookies()
+        print(url)
 
 
     def _next_page(self):
@@ -250,12 +245,11 @@ class Scraper():
                     current_section = section
             a = current_section.find_element_by_css_selector('a.moreButton')
             url = a.get_attribute('href')
-            print(url)
             self.get(url) 
             return url
         except (UnboundLocalError,
                 selenium.common.exceptions.NoSuchElementException):
-            return 0
+            return 'See all button does not exist'
 
     def _get_samples_inferred_url(self, sampled_in_song_list, artist_list, relation):
 
