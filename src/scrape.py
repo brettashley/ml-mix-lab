@@ -22,16 +22,14 @@ def main(url=None, get_genre=True, get_songs=True):
         artists = s.get_artist_urls(url, sel, desired_section)
         db.write_artists(artists)
 
-    for _ in range(1):
+    for _ in range(100):
         # get next artist to scrape
         artist = db.get_next_artist_to_scrape()
 
         # scrape artists for songs and write songs to DB
-
         if get_songs:
             songs = s.get_artist_songs(artist)
             db.write_songs(songs)
-            current_artist_id = artist['id']
         
         # get next song to scrape
         n_songs_to_scrape = db.count_songs_to_scrape(artist['id'])
@@ -47,9 +45,9 @@ def main(url=None, get_genre=True, get_songs=True):
                 sample_id = db.get_song_id(song_dict['url'])
                 db.insert_contains_sample(song['id'], sample_id)
         
-        db.update_scraped_status('artists', current_artist_id, 1)
+        db.update_scraped_status('artists', artist['id'], 1)
 
-main(get_genre=False, get_songs=False)
+main(get_genre=False, get_songs=True)
 
 
 
