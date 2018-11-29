@@ -8,7 +8,7 @@ from DatabaseInteraction import DatabaseInteraction
 
 url_soul_funk_disco = 'https://www.whosampled.com/genre/Soul-Funk-Disco/'
 
-def main(url=None, get_genre=True, get_songs=True):
+def main(url=None, get_genre=True, get_first_artist_songs=True):
     
     s = Scraper()
     db = DatabaseInteraction()
@@ -28,9 +28,10 @@ def main(url=None, get_genre=True, get_songs=True):
         artist = db.get_next_artist_to_scrape()
 
         # scrape artists for songs and write songs to DB
-        if get_songs and counter != 1:
+        if get_first_artist_songs or counter != 1:
             songs = s.get_artist_songs(artist)
             db.write_songs(songs)
+            print('doing it')
         
         # get next song to scrape
         n_songs_to_scrape = db.count_songs_to_scrape(artist['id'])
@@ -49,7 +50,7 @@ def main(url=None, get_genre=True, get_songs=True):
         db.update_scraped_status('artists', artist['id'], 1)
         counter += 1
 
-main(get_genre=False, get_songs=True)
+main(get_genre=False, get_first_artist_songs=False)
 
 
 
