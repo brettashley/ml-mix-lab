@@ -11,7 +11,7 @@ class DatabaseInteraction():
         self.conn = psycopg2.connect(dbname=self.db_name, host='localhost')
         self.cur = self.conn.cursor()
 
-    def write_artists(self, artist_urls):
+    def write_artists(self, artist_urls, return_artist_id=False):
         '''
         Parameters
         ----------
@@ -22,15 +22,24 @@ class DatabaseInteraction():
         self :  Writes artist to database
         '''
         for artist in artist_urls:
-            query = f"""   
+            if return_artist_id:
+                query = """   
                 INSERT INTO artists (name, url, scraped)
-                
                 SELECT %s, %s, 0
-                        
                 WHERE %s NOT IN (
                             SELECT url FROM artists
-                            );
+                            )
+                RETURNING id;
+                
                         """
+            else:
+                query = """   
+                    INSERT INTO artists (name, url, scraped)
+                    SELECT %s, %s, 0     
+                    WHERE %s NOT IN (
+                                SELECT url FROM artists
+                                );
+                            """
             self.cur.execute(query, (
                  artist["name"],
                  artist["url"],
@@ -61,9 +70,7 @@ class DatabaseInteraction():
 
             query = f"""   
                 INSERT INTO songs (artist_id, name, url, scraped)
-                
                 SELECT %s, %s, %s, 0
-                        
                 WHERE %s NOT IN (
                             SELECT url FROM songs
                             );
@@ -100,7 +107,7 @@ class DatabaseInteraction():
         arist :  dictionary of next artist to scrape      
         """
         query = """
-                SELECT id, url FROM artists
+                SELECT id, url, name FROM artists
                 WHERE scraped = 0
                 ORDER BY id
                 LIMIT 1
@@ -110,7 +117,8 @@ class DatabaseInteraction():
         self.conn.commit()
         output = list(self.cur)
         return {'id' : output[0][0],
-                'url' : output[0][1]}
+                'url' : output[0][1],
+                'name': output[0][2]}
 
     def get_next_song_to_scrape(self, artist_id):
         """ 
@@ -179,7 +187,31 @@ class DatabaseInteraction():
         self.cur.execute(query, (song_url,))
         self.conn.commit()
         return [x for (x,) in self.cur][0]
-        
+
+    def get_artist_info(self, artist_id=None, url=None):
+        """ 
+        Returns
+        -------
+        arist :  dictionary of desired artist   
+        """
+        if artist_id is not None:
+            query = """
+                    SELECT id, url, name FROM artists
+                    WHERE id = %s
+                    """
+            self.cur.execute(query, (artist_id,))
+        elif url is not None:
+            query = """
+                    SELECT id, url, name FROM artists
+                    WHERE url = %s
+                    """
+            self.cur.execute(query, (url,))
+
+        self.conn.commit()
+        output = list(self.cur)
+        return {'id' : output[0][0],
+                'url' : output[0][1],
+                'name': output[0][2]}
         
 
 
