@@ -20,7 +20,8 @@ class Scraper():
         try:
             button = self.b.find_element_by_css_selector('button.qc-cmp-button')
             button.click()
-        except selenium.common.exceptions.NoSuchElementException:
+        except (selenium.common.exceptions.NoSuchElementException,
+                selenium.common.exceptions.ElementNotInteractableException):
             pass
 
 
@@ -86,7 +87,7 @@ class Scraper():
         -------
         artists : list of dictionaries for each artist name and url
         """
-        self.b.get(artist_url_dict['url'])
+        self.get(artist_url_dict['url'])
         self._accept_cookies()
         tracks_list = []
 
