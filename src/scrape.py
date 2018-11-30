@@ -8,11 +8,11 @@ from DatabaseInteraction import DatabaseInteraction
 
 url_soul_funk_disco = 'https://www.whosampled.com/genre/Soul-Funk-Disco/'
 
-def main(url=None, get_genre=True, get_first_artist_songs=True):
+def main(url=None, get_genre=True, get_first_artist_songs=True, artists_to_scrape=None):
     
     s = Scraper()
     db = DatabaseInteraction()
-    counter = 1
+    counter = 0
 
     if get_genre:
 
@@ -23,15 +23,24 @@ def main(url=None, get_genre=True, get_first_artist_songs=True):
         artists = s.get_artist_urls(url, sel, desired_section)
         db.write_artists(artists)
 
-    for _ in range(100):
+    if artists_to_scrape is None:
+        n_artists_to_scrape = 100
+    else:
+        n_artists_to_scrape = len(artists_to_scrape)
+
+    for i in range(n_artists_to_scrape):
         # get next artist to scrape
-        artist = db.get_next_artist_to_scrape()
+        if artists_to_scrape is None:
+            artist = db.get_next_artist_to_scrape()
+
+        else:
+            artist = db.get_artist_info(artists_to_scrape[i])
 
         # scrape artists for songs and write songs to DB
         if get_first_artist_songs or counter != 1:
             songs = s.get_artist_songs(artist)
             db.write_songs(songs)
-            print('doing it')
+            print(f'Getting songs for {artist["name"]}')
         
         # get next song to scrape
         n_songs_to_scrape = db.count_songs_to_scrape(artist['id'])
@@ -50,7 +59,8 @@ def main(url=None, get_genre=True, get_first_artist_songs=True):
         db.update_scraped_status('artists', artist['id'], 1)
         counter += 1
 
-main(get_genre=False, get_first_artist_songs=False)
+artists_to_scrape = [10, 29, 4601, 485, 489, 1749, 60, 476, 350, 3351]
+main(get_genre=False, get_first_artist_songs=True, artists_to_scrape=artists_to_scrape)
 
 
 
