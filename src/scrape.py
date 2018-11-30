@@ -23,6 +23,11 @@ def main(url=None, get_genre=True, get_first_artist_songs=True, artists_to_scrap
         artists = s.get_artist_urls(url, sel, desired_section)
         db.write_artists(artists)
 
+        artists_to_scrape = []
+        for artist in artists:
+            artist_dict = db.get_artist_info(url=artist["url"])
+            artists_to_scrape.append(artist_dict["id"])
+
     if artists_to_scrape is None:
         n_artists_to_scrape = 100
     else:
@@ -34,13 +39,14 @@ def main(url=None, get_genre=True, get_first_artist_songs=True, artists_to_scrap
             artist = db.get_next_artist_to_scrape()
 
         else:
-            artist = db.get_artist_info(artists_to_scrape[i])
+            artist = db.get_artist_info(artist_id=artists_to_scrape[i])
 
         # scrape artists for songs and write songs to DB
-        if get_first_artist_songs or counter != 1:
+        if get_first_artist_songs or counter != 0:
+            print(f'Getting songs for {artist["name"]}')
             songs = s.get_artist_songs(artist)
             db.write_songs(songs)
-            print(f'Getting songs for {artist["name"]}')
+            
         
         # get next song to scrape
         n_songs_to_scrape = db.count_songs_to_scrape(artist['id'])
@@ -59,8 +65,10 @@ def main(url=None, get_genre=True, get_first_artist_songs=True, artists_to_scrap
         db.update_scraped_status('artists', artist['id'], 1)
         counter += 1
 
-artists_to_scrape = [10, 29, 4601, 485, 489, 1749, 60, 476, 350, 3351]
-main(get_genre=False, get_first_artist_songs=True, artists_to_scrape=artists_to_scrape)
+# artists_to_scrape = [485, 489, 1749, 60, 476, 350, 3351]
+# main(get_genre=False, get_first_artist_songs=False, artists_to_scrape=artists_to_scrape)
+
+main(url='https://www.whosampled.com/genre/Electronic-Dance/')
 
 
 
