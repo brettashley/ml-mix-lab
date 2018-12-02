@@ -10,7 +10,7 @@ class Scraper():
 
     def __init__(self, browser=None):
         if browser is None:
-            self.b = Firefox()
+            self.b = Firefox(timeout=60)
         else:
             self.b = browser
 
