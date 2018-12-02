@@ -89,6 +89,7 @@ class Scraper():
         """
         self.get(artist_url_dict['url'])
         self._accept_cookies()
+        self._choose_artist_role_as_artist()
         tracks_list = []
 
         last_page = False
@@ -143,7 +144,7 @@ class Scraper():
         page = self._see_all('Contains sample')
         last_page = False
         while last_page == False:
-            self._get_samples_inferred_url(sampled_in_song_list, artist_list, 'Contains sample')
+            self._get_samples_inferred_url(samples_song_list, artist_list, 'Contains sample')
             try:
                 page = self._next_page()
             except selenium.common.exceptions.NoSuchElementException:
@@ -252,7 +253,7 @@ class Scraper():
                 selenium.common.exceptions.NoSuchElementException):
             return 'See all button does not exist'
 
-    def _get_samples_inferred_url(self, sampled_in_song_list, artist_list, relation):
+    def _get_samples_inferred_url(self, song_list, artist_list, relation):
 
         sel = "div#content\
             div.divided-layout\
@@ -289,9 +290,29 @@ class Scraper():
                                 'artist_id': None}
 
                 artist_list.append(artist_dict)
-                sampled_in_song_list.append(song_dict)
+                song_list.append(song_dict)
+                
 
 
         except AttributeError:
             return None
             print('fjds;afjds;ah')
+
+    def _choose_artist_role_as_artist(self):
+        try:
+            sel = 'div.optionMenu.artist-role'
+            role_selector = self.b.find_element_by_css_selector(sel)
+            roles = role_selector.find_elements_by_css_selector('li')
+
+            for role in roles:
+                try:
+                    a = role.find_element_by_css_selector('a')
+                    if a.get_attribute('innerHTML') == 'As an Artist':
+                        url = a.get_attribute('href')
+                    else:
+                        continue
+                except selenium.common.exceptions.NoSuchElementException:
+                    continue
+            self.get(url)
+        except selenium.common.exceptions.NoSuchElementException:
+            pass
