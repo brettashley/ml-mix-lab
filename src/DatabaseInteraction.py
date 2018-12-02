@@ -120,21 +120,31 @@ class DatabaseInteraction():
                 'url' : output[0][1],
                 'name': output[0][2]}
 
-    def get_next_song_to_scrape(self, artist_id):
+    def get_next_song_to_scrape(self, artist_id=None):
         """ 
         Returns
         -------
         arist :  dictionary of next artist to scrape      
         """
-        query = """
-                SELECT id, url FROM songs
-                WHERE scraped = 0
-                AND artist_id = %s
-                ORDER BY id
-                LIMIT 1
-                """
+        if artist_id is None:
+            query = """
+                    SELECT id, url FROM songs
+                    WHERE scraped = 0
+                    ORDER BY id
+                    LIMIT 1
+                    """
+            self.cur.execute(query)
+        
+        else:
+            query = """
+                    SELECT id, url FROM songs
+                    WHERE scraped = 0
+                    AND artist_id = %s
+                    ORDER BY id
+                    LIMIT 1
+                    """
+            self.cur.execute(query, (artist_id,))
 
-        self.cur.execute(query, (artist_id,))
         self.conn.commit()
         output = list(self.cur)
         return {'id' : output[0][0],
@@ -196,13 +206,13 @@ class DatabaseInteraction():
         """
         if artist_id is not None:
             query = """
-                    SELECT id, url, name FROM artists
+                    SELECT id, url, name, scraped FROM artists
                     WHERE id = %s
                     """
             self.cur.execute(query, (artist_id,))
         elif url is not None:
             query = """
-                    SELECT id, url, name FROM artists
+                    SELECT id, url, name, scraped FROM artists
                     WHERE url = %s
                     """
             self.cur.execute(query, (url,))
@@ -211,7 +221,8 @@ class DatabaseInteraction():
         output = list(self.cur)
         return {'id' : output[0][0],
                 'url' : output[0][1],
-                'name': output[0][2]}
+                'name': output[0][2],
+                'scraped': output[0][3]}
         
 
 
