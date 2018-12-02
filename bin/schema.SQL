@@ -1,7 +1,7 @@
 
-DROP TABLE IF EXISTS artists;
-DROP TABLE IF EXISTS songs;
-DROP TABLE IF EXISTS connections;
+-- DROP TABLE IF EXISTS artists;
+-- DROP TABLE IF EXISTS songs;
+-- DROP TABLE IF EXISTS connections;
 
 
 CREATE TABLE artists(
