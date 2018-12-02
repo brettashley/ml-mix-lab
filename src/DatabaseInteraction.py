@@ -173,9 +173,9 @@ class DatabaseInteraction():
         self :  Writes songs to database
         '''
         query = f"""   
-            INSERT INTO connections (song_id, sampled_by_song_id)
+            INSERT INTO connections (song_id, sampled_by_song_id, is_connected)
             
-            SELECT %s, %s
+            SELECT %s, %s, 1
                     
             WHERE (%s, %s) NOT IN (
                         SELECT song_id, sampled_by_song_id FROM connections
