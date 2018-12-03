@@ -224,6 +224,34 @@ class DatabaseInteraction():
                 'name': output[0][2],
                 'scraped': output[0][3]}
         
+    def get_next_artist_for_spotify(self):
+        query = """   
+                SELECT a.name, count(s.artist_id) as artist_freq
+                FROM artists a
+                JOIN songs s
+                ON a.id = s.artist_id
+                GROUP BY a.id
+                HAVING a.scraped_spotify = 0
+                ORDER BY artist_freq DESC
+                LIMIT 1;
+                """
+        self.cur.execute(query)
+        self.conn.commit()
+
+
+        def update_scraped_spotify_status(self, table, id_to_update, status):
+        
+            query = """
+                    UPDATE {}
+                    SET scraped_spotify = %s
+                    WHERE id = %s
+                    ;"""
+
+            self.cur.execute(
+                sql.SQL(query)
+                    .format(sql.Identifier(table))
+                , (status, id_to_update))
+            self.conn.commit()
 
 
 
