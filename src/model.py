@@ -31,6 +31,11 @@ class SongRecommender():
                             nonnegative=self.nonnegative,
                             regParam=self.regParam,
                             rank=self.rank)
+        self.spark = (ps.sql.SparkSession.builder 
+                        .master("local[4]") 
+                        .appName("afternoon sprint") 
+                        .getOrCreate()
+                        )
         
     
     def fit(self, X):
@@ -44,7 +49,7 @@ class SongRecommender():
 
     def RMSE(self, predictions, has_nan_values=False):
         evaluator = RegressionEvaluator(metricName='rmse', 
-                                       labelCol=self.labelCol,
+                                       labelCol=self.ratingCol,
                                        predictionCol='prediction')
         if has_nan_values:
             # check for nan values by computation
@@ -54,6 +59,40 @@ class SongRecommender():
         else:
             return evaluator.evaluate(predictions)
 
+    def generate_negative_targets(self, X, col1, col2, target_col, n_new_combos=None, seed=216):
+        '''
+        Generates new id combinations to get data with a negative target in order to
+        help with model evaluation
+
+        Parameters
+        ----------
+        col1 : string, name of column 1
+        col2 : string, name of columns 2
+        X : spark df with all possible values for col1 and col2 where target = 1
+
+        Returns
+        -------
+        X_with_negative_targets : spark dataframe with new combos where target = 0
+        '''
+        df = X.toPandas()
+
+        col1_uniques = df[col1].unique()
+        col2_uniques = df[col2].unique()
+
+        if n_new_combos is None:
+            n_new_combos = len(df)
+
+        new_combos = []
+        while len(new_combos) < n_new_combos:
+            val1 = np.random.choice(col1_uniques)
+            val2 = np.random.choice(col2_uniques)
+            # print(f'trying {(val1, val2)}')
+            if len(df.loc[(df[col1] == val1) & (df[col2] == val2)]) == 0:
+                new_combos.append((val1, val2))
+        negative_target_df = pd.DataFrame(new_combos, columns=[col1, col2])
+        negative_target_df[target_col] = 0
+        concatenated = pd.concat([df, negative_target_df], sort=True).reset_index()
+        return self.spark.createDataFrame(concatenated)
 
 
 
