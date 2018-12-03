@@ -314,5 +314,6 @@ class Scraper():
                 except selenium.common.exceptions.NoSuchElementException:
                     continue
             self.get(url)
-        except selenium.common.exceptions.NoSuchElementException:
+        except (selenium.common.exceptions.NoSuchElementException,
+                UnboundLocalError):
             pass
