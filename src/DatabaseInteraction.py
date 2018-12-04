@@ -6,7 +6,7 @@ from psycopg2 import sql
 
 class DatabaseInteraction():
 
-    def __init__(self, db_name='mixmaker'):
+    def __init__(self, db_name='mixmaker2'):
         self.db_name = db_name
         self.conn = psycopg2.connect(dbname=self.db_name, host='localhost')
         self.cur = self.conn.cursor()
@@ -239,21 +239,33 @@ class DatabaseInteraction():
         self.conn.commit()
 
 
-        def update_scraped_spotify_status(self, table, id_to_update, status):
-        
-            query = """
-                    UPDATE {}
-                    SET scraped_spotify = %s
-                    WHERE id = %s
-                    ;"""
+    def update_scraped_spotify_status(self, table, id_to_update, status):
+        query = """
+                UPDATE {}
+                SET scraped_spotify = %s
+                WHERE id = %s
+                ;"""
 
-            self.cur.execute(
-                sql.SQL(query)
-                    .format(sql.Identifier(table))
-                , (status, id_to_update))
-            self.conn.commit()
-
+        self.cur.execute(
+            sql.SQL(query)
+                .format(sql.Identifier(table))
+            , (status, id_to_update))
+        self.conn.commit()
 
 
+    def get_song_id_with_title(self, song_title, artist_id):
+        query = """
+                SELECT id, name, url
+                FROM songs
+                WHERE name = %s
+                AND artist_id = %s
+                """
 
+        self.cur.execute(query, (song_title, artist_id))
+        self.conn.commit()
+        result = list(self.cur)
+        if len(result)==0:
+            None
+        else:
+            return [x for x in result][0]
 
