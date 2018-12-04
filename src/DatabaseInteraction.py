@@ -297,3 +297,71 @@ class DatabaseInteraction():
             self.cur.execute(sql.SQL(query))
 
         self.conn.commit()
+
+
+
+    def fix_similar_url_ids(self):
+        is_output = True
+        while is_output:
+            query = """   
+                    SELECT id, url from songs
+                    WHERE (url LIKE '%\%28%'
+                    OR url LIKE '%\%29%')
+                    AND checked = 0
+                    ORDER BY id
+                    LIMIT 1;
+                    """
+            self.cur.execute(query)
+            self.conn.commit()
+            results = [x for x in self.cur]
+            if len(results) != 0:
+                current_id = results[0][0]
+                current_url = results[0][1]
+
+                correct_song_url = current_url.replace('%28', '(').replace('%29', ')')
+                query = """   
+                        SELECT id, url from songs
+                        WHERE url = %s
+                        LIMIT 1;
+                        """
+                self.cur.execute(query, (correct_song_url,))
+                self.conn.commit()
+                results = [x for x in self.cur]
+                if len(results) == 1:
+                    correct_id = results[0][0]
+
+                    update_song_id = """   
+                                    UPDATE connections
+                                    SET song_id = %s
+                                    WHERE song_id = %s;
+                                    """
+                    update_sampled = """   
+                                    UPDATE connections
+                                    SET sampled_by_song_id = %s
+                                    WHERE sampled_by_song_id = %s;
+                                    """
+                    update_checked = """   
+                                    UPDATE songs
+                                    SET checked = 1
+                                    WHERE id = %s;
+                                    """
+                    self.cur.execute(update_song_id, (correct_id, current_id))
+                    self.cur.execute(update_sampled, (correct_id, current_id))
+                    self.cur.execute(update_checked, (current_id, ))                                        
+                    self.conn.commit()
+                    print(f'updated {(current_id, current_url)} to \n {correct_id, correct_song_url} \n')
+                else:
+                    # print(f'{current_id} Does not need update')
+                    update_checked = """   
+                                    UPDATE songs
+                                    SET checked = 1
+                                    WHERE id = %s;
+                                    """
+                    self.cur.execute(update_checked, (current_id, ))
+                                                                    
+                    self.conn.commit()
+            else:
+                is_output = False
+                print('done')
+
+
