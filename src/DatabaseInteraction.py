@@ -269,3 +269,31 @@ class DatabaseInteraction():
         else:
             return [x for x in result][0]
 
+    def strip_years_from_name(self, update_all=True, artist_id=None, song_id=None):
+
+        if (artist_id is not None) and (song_id is None):
+            query = """
+                    UPDATE songs
+                    SET name = REGEXP_REPLACE(name, ' \((19|20)\d{2}\)', '')
+                    WHERE artist_id = %s
+                    ;"""   
+            self.cur.execute(
+                sql.SQL(query), (artist_id,)) 
+        
+        elif song_id is not None:
+            query = """
+                    UPDATE songs
+                    SET name = REGEXP_REPLACE(name, ' \((19|20)\d{2}\)', '')
+                    WHERE id = %s
+                    ;"""   
+            self.cur.execute(sql.SQL(query), (song_id,)) 
+
+        elif update_all:
+            query = """
+                UPDATE songs
+                SET name = REGEXP_REPLACE(name, ' \((19|20)\d{2}\)', '')
+                ;"""
+
+            self.cur.execute(sql.SQL(query))
+
+        self.conn.commit()
