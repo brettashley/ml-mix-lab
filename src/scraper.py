@@ -127,19 +127,6 @@ class Scraper():
         artist_list = []
         samples_song_list = []
 
-        # was sampled in
-        page = self._see_all('Was sampled in')
-        last_page = False
-        while last_page == False:
-            self._get_samples_inferred_url(sampled_in_song_list, artist_list, 'Was sampled')
-            try:
-                page = self._next_page()
-            except selenium.common.exceptions.NoSuchElementException:
-                last_page = True
-        
-        if page != 'See all button does not exist':
-            self.get(song_url)
-
         # samples
         page = self._see_all('Contains sample')
         last_page = False
@@ -151,6 +138,23 @@ class Scraper():
                 last_page = True
 
         return sampled_in_song_list, samples_song_list, artist_list
+
+        if page != 'See all button does not exist':
+            self.get(song_url)
+
+        # was sampled in
+        page = self._see_all('Was sampled in')
+        last_page = False
+        while last_page == False:
+            self._get_samples_inferred_url(sampled_in_song_list, artist_list, 'Was sampled')
+            try:
+                page = self._next_page()
+            except selenium.common.exceptions.NoSuchElementException:
+                last_page = True
+        
+
+
+
 
 
     def _get_samples(self, sampled_in_song_list, artist_list, relation):
@@ -283,7 +287,11 @@ class Scraper():
                 song_name = (song_details
                                 .find_element_by_css_selector('a.trackName')
                                 .text)
-                song_url = artist_url + urllib.parse.quote(song_name.replace(' ', '-')) + '/'
+                song_url = (artist_url + (urllib.parse.quote(song_name
+                                            .replace(' ', '-'))
+                                            .replace('%28', '(')
+                                            .replace('%29', ')'))
+                                      + '/')
                 song_dict = {'name': song_name,
                                 'url': song_url,
                                 'artist_url': artist_url,
