@@ -121,7 +121,7 @@ class SongRecommender():
             df = pd.concat([df, negative_target_df], sort=True).reset_index()
         return self.spark.createDataFrame(df)
 
-    def get_predictions_for_song(self, recommender, dataset, song_id, n_predictions):
+    def get_predictions_for_song(self, recommender, dataset, song_id, n_predictions=10):
         '''
         Parameters
         ----------
