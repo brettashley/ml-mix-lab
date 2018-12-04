@@ -283,7 +283,7 @@ class Scraper():
                 song_name = (song_details
                                 .find_element_by_css_selector('a.trackName')
                                 .text)
-                song_url = artist_url + urllib.parse.quote(song_name.replace(' ', '-'))
+                song_url = artist_url + urllib.parse.quote(song_name.replace(' ', '-')) + '/'
                 song_dict = {'name': song_name,
                                 'url': song_url,
                                 'artist_url': artist_url,
