@@ -8,6 +8,7 @@ from pyspark.ml.recommendation import ALS
 from pandas.io import sql
 from sklearn.model_selection import train_test_split
 from pyspark.ml.evaluation import RegressionEvaluator
+from itertools import product
 
 class SongRecommender():
 
@@ -59,7 +60,9 @@ class SongRecommender():
         else:
             return evaluator.evaluate(predictions)
 
-    def generate_negative_targets(self, X, col1, col2, target_col, n_new_combos=None, seed=216):
+    def generate_negative_targets(self, X, col1, col2,
+                                  target_col, n_new_combos=None,
+                                  get_all=False, seed=216):
         '''
         Generates new id combinations to get data with a negative target in order to
         help with model evaluation
@@ -79,20 +82,55 @@ class SongRecommender():
         col1_uniques = df[col1].unique()
         col2_uniques = df[col2].unique()
 
-        if n_new_combos is None:
-            n_new_combos = len(df)
+        if get_all:
+            counter = 0
+            existing_combos = set((x,y) for [x,y] in df[[col1, col2]].values)
+            while counter < len(df):
+                if len(df) - counter >= 100:
+                    new_combos = set((x,y) for (x,y) in 
+                                product(col1_uniques[counter:counter+100],
+                                        col2_uniques))
+                else:
+                    new_combos = set((x,y) for (x,y) in 
+                                product(col1_uniques[counter:],
+                                        col2_uniques))
 
-        new_combos = []
-        while len(new_combos) < n_new_combos:
-            val1 = np.random.choice(col1_uniques)
-            val2 = np.random.choice(col2_uniques)
-            # print(f'trying {(val1, val2)}')
-            if len(df.loc[(df[col1] == val1) & (df[col2] == val2)]) == 0:
-                new_combos.append((val1, val2))
-        negative_target_df = pd.DataFrame(new_combos, columns=[col1, col2])
-        negative_target_df[target_col] = 0
-        concatenated = pd.concat([df, negative_target_df], sort=True).reset_index()
-        return self.spark.createDataFrame(concatenated)
+
+                difference = (existing_combos - new_combos)
+                difference_with_target = [combo + (0,) for combo in difference]
+                negative_target_df = pd.DataFrame(difference_with_target,
+                                         columns=[col1, col2, target_col])
+                df = pd.concat([df, negative_target_df], sort=True).reset_index()
+                counter += 100
+        else:
+            if n_new_combos is None:
+                n_new_combos = len(df)
+
+            new_combos = []
+            while len(new_combos) < n_new_combos:
+                val1 = np.random.choice(col1_uniques, seed=seed)
+                val2 = np.random.choice(col2_uniques, seed=2*seed)
+                # print(f'trying {(val1, val2)}')
+                if len(df.loc[(df[col1] == val1) & (df[col2] == val2)]) == 0:
+                    new_combos.append((val1, val2))
+            negative_target_df = pd.DataFrame(new_combos, columns=[col1, col2])
+            negative_target_df[target_col] = 0
+            df = pd.concat([df, negative_target_df], sort=True).reset_index()
+        return self.spark.createDataFrame(df)
+
+    def get_predictions_for_song(self, predictions, song_id, n_predictions):
+        '''
+        Parameters
+        ----------
+        predictions : dataframe, all predictions from .transform
+        song_id : integer, 
+        X : spark df with all possible values for col1 and col2 where target = 1
+
+        Returns
+        -------
+        X_with_negative_targets : spark dataframe with new combos where target = 0
+        '''
+
 
 
 
