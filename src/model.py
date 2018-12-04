@@ -85,10 +85,11 @@ class SongRecommender():
         if get_all:
             counter = 0
             existing_combos = set((x,y) for [x,y] in df[[col1, col2]].values)
-            while counter < len(df):
-                if len(df) - counter >= 100:
+            df_size = len(df)
+            while counter < df_size:
+                if df_size - counter >= 500:
                     new_combos = set((x,y) for (x,y) in 
-                                product(col1_uniques[counter:counter+100],
+                                product(col1_uniques[counter:counter+500],
                                         col2_uniques))
                 else:
                     new_combos = set((x,y) for (x,y) in 
@@ -100,8 +101,10 @@ class SongRecommender():
                 difference_with_target = [combo + (0,) for combo in difference]
                 negative_target_df = pd.DataFrame(difference_with_target,
                                          columns=[col1, col2, target_col])
-                df = pd.concat([df, negative_target_df], sort=True).reset_index()
-                counter += 100
+                df = pd.concat([df, negative_target_df], sort=True)
+                df.reset_index()
+                counter += 500
+                print(counter)
         else:
             if n_new_combos is None:
                 n_new_combos = len(df)
@@ -118,7 +121,7 @@ class SongRecommender():
             df = pd.concat([df, negative_target_df], sort=True).reset_index()
         return self.spark.createDataFrame(df)
 
-    def get_predictions_for_song(self, predictions, song_id, n_predictions):
+    def get_predictions_for_song(self, recommender, dataset, song_id, n_predictions):
         '''
         Parameters
         ----------
@@ -130,7 +133,15 @@ class SongRecommender():
         -------
         X_with_negative_targets : spark dataframe with new combos where target = 0
         '''
-
+        one_rec = recommender.recommendForUserSubset(
+            dataset.filter('sampled_by_song_id = %s' % song_id), n_predictions)
+        df = one_rec.toPandas()
+        song_id_list = list([song_id] * 10)
+        song_id_df = pd.DataFrame(song_id_list, columns=['sampled_by_song_id'])
+        recs_df = pd.DataFrame(df.loc[0,'recommendations'],
+                        columns=['song_id', 'rating'])
+        return song_id_df.merge(recs_df, left_index=True, right_index=True)
+        
 
 
 
