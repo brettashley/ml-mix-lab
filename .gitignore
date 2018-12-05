@@ -5,3 +5,4 @@ __pycache__/
 metastore_db/
 .cache*
 derby.log
+.vscode/
