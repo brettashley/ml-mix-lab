@@ -125,16 +125,16 @@ class SongRecommender():
         '''
         Parameters
         ----------
-        predictions : dataframe, all predictions from .transform
-        song_id : integer, 
+        recommender : a fit ALS model
+        dataset : full training set 
         X : spark df with all possible values for col1 and col2 where target = 1
 
         Returns
         -------
-        X_with_negative_targets : spark dataframe with new combos where target = 0
+        dataframe : top 10 recommendations for song
         '''
         one_rec = recommender.recommendForUserSubset(
-            dataset.filter('sampled_by_song_id = %s' % song_id), n_predictions)
+            dataset.filter('sampled_by_song_id = %s' % song_id), 2*n_predictions)
         df = one_rec.toPandas()
         song_id_list = list([song_id] * 10)
         song_id_df = pd.DataFrame(song_id_list, columns=['sampled_by_song_id'])
