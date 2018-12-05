@@ -1,0 +1,7 @@
+*dump*.sql
+geckodriver.log
+.ipynb_checkpoints/
+__pycache__/
+metastore_db/
+.cache*
+derby.log
