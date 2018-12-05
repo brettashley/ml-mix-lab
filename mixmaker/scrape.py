@@ -4,7 +4,7 @@ import selenium
 from selenium.webdriver import Firefox, Chrome
 import time
 from scraper import Scraper
-from DatabaseInteraction import DatabaseInteraction
+from database_interaction import DatabaseInteraction
 import numpy as np
 
 
