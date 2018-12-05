@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS song_features;
 --   id                    SERIAL PRIMARY KEY NOT NULL,
 --   artist_id             INTEGER,
 --   name                  VARCHAR,
+--   corrected_name        VARCHAR,
 --   url                   VARCHAR,
 --   scraped               INTEGER,
 --   scraped_spotify       INTEGER
