@@ -6,10 +6,33 @@ from psycopg2 import sql
 
 class DatabaseInteraction():
 
-    def __init__(self, db_name='mixmaker2'):
+    def __init__(self, db_name='mixmaker', host='localhost'):
         self.db_name = db_name
-        self.conn = psycopg2.connect(dbname=self.db_name, host='localhost')
+        self.conn = psycopg2.connect(dbname=self.db_name, host=host)
         self.cur = self.conn.cursor()
+
+    def get_table(self, table_name, filters_as_where_clause=''):
+        query = " SELECT * FROM {}" + filters_as_where_clause + ";"
+
+                
+        self.cur.execute(sql.SQL(query)
+                    .format(sql.Identifier(table_name)))
+        self.conn.commit()
+        table = list(self.cur)
+
+        query = """ 
+                SELECT column_name 
+                FROM information_schema.columns
+                WHERE table_name = %s
+                ;""" 
+
+                
+        self.cur.execute(sql.SQL(query), (table_name,))
+        self.conn.commit()
+        col_names = [x for (x,) in self.cur]
+
+        return pd.DataFrame(table, columns=col_names)
+
 
     def write_artists(self, artist_urls, return_artist_id=False):
         '''
@@ -269,33 +292,94 @@ class DatabaseInteraction():
         else:
             return [x for x in result][0]
 
-    def strip_years_from_name(self, update_all=True, artist_id=None, song_id=None):
+    def get_predictions_for_song(self, song_id):
+        # query = """
+        #         SELECT id, name, url
+        #         FROM songs
+        #         WHERE name = %s
+        #         AND artist_id = %s
+        #         """
 
-        if (artist_id is not None) and (song_id is None):
-            query = """
-                    UPDATE songs
-                    SET name = REGEXP_REPLACE(name, ' \((19|20)\d{2}\)', '')
-                    WHERE artist_id = %s
-                    ;"""   
-            self.cur.execute(
-                sql.SQL(query), (artist_id,)) 
-        
-        elif song_id is not None:
-            query = """
-                    UPDATE songs
-                    SET name = REGEXP_REPLACE(name, ' \((19|20)\d{2}\)', '')
-                    WHERE id = %s
-                    ;"""   
-            self.cur.execute(sql.SQL(query), (song_id,)) 
+        # self.cur.execute(query, (song_title, artist_id))
+        # self.conn.commit()
+        # result = list(self.cur) 
+        pass
 
-        elif update_all:
+    
+    def get_song_and_artist_names(self, artist_id = None, song_id=None):
+            
+        if (artist_id, song_id) == (None, None):
             query = """
-                UPDATE songs
-                SET name = REGEXP_REPLACE(name, ' \((19|20)\d{2}\)', '')
+                SELECT a.name, s.name, s.url
+                FROM songs s
+                LEFT JOIN artists a
+                ON s.artist_id = a.id
                 ;"""
 
             self.cur.execute(sql.SQL(query))
 
+        elif song_id is not None:
+            query = """
+                SELECT a.name, s.name, s.url
+                FROM songs s
+                LEFT JOIN artists a
+                ON s.artist_id = a.id
+                WHERE s.id = %s
+                ;"""
+
+            self.cur.execute(sql.SQL(query), (song_id,))
+
+        elif artist_id is not None:
+            query = """
+                SELECT a.name, s.name, s.url
+                FROM songs s
+                LEFT JOIN artists a
+                ON s.artist_id = a.id
+                WHERE a.id = %s
+                ;"""
+
+            self.cur.execute(sql.SQL(query), (artist_id,))
+
+        self.conn.commit()
+        df = pd.DataFrame(list(self.cur),
+                          columns=['artist_name', 'song_name', 'song_url'])
+        
+        df['correct_artist_url'] = (df['song_url']
+                                    .apply(self._extract_real_artist_url))
+
+        artists = self.get_table('artists')
+        merged = df.merge(artists, left_on='correct_artist_url', right_on='url')
+        merged['correct_artist_name'] = merged.apply(self._correct_artist_names, axis=1)
+
+        output =  merged.loc[:,['correct_artist_name', 'song_name']]
+        output.columns = ['artist_name', 'song_name']
+        return output
+
+        
+    def _extract_real_artist_url(self, url):
+        splits = url.split('/')
+        if (splits[5] == 'tv') or (splits[5] == 'movie'):
+            return '/'.join(splits[:5]) + '/' 
+        else:
+            return '/'.join(splits[:4]) + '/'
+    
+    def _correct_artist_names(self, df):
+        if df['artist_name'] != df['name']:
+            return df['name']
+        else:
+            return df['artist_name']
+
+
+
+
+    def strip_years_from_name(self, update_all=True, artist_id=None, song_id=None):
+
+        query = """
+            UPDATE songs
+            SET name = REGEXP_REPLACE(name, ' \((19|20)\d{2}\)', '')
+            ;"""
+
+        self.cur.execute(sql.SQL(query))
         self.conn.commit()
 
 
