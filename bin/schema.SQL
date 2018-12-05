@@ -1,7 +1,7 @@
 
--- DROP TABLE IF EXISTS artists;
--- DROP TABLE IF EXISTS songs;
--- DROP TABLE IF EXISTS connections;
+DROP TABLE IF EXISTS artists;
+DROP TABLE IF EXISTS songs;
+DROP TABLE IF EXISTS connections;
 DROP TABLE IF EXISTS song_features;
 
 
@@ -19,7 +19,7 @@ CREATE TABLE songs (
   name                  VARCHAR,
   url                   VARCHAR,
   scraped               INTEGER,
-  scraped_spotify       INTEGER,
+  scraped_spotify       INTEGER
 );
 
 CREATE TABLE connections (
