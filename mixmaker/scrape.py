@@ -106,40 +106,11 @@ def scrape_songs():
 
 # main(url=url_soul_funk_disco, get_genre=False, get_first_artist_songs=True)
 
-# main(url='https://www.whosampled.com/genre/Soul-Funk-Disco/',
-#      get_genre=False,
-#      get_first_artist_songs=False,
-#      db_name='mixmaker')
-
-# artists_to_scrape = [7993, 7940, 8896, 317, 641, 572, 2954, 4465, 10014, 7638]
-
-# main(url='https://www.whosampled.com/genre/Hip-Hop/',
-#      get_genre=False,
-#      get_first_artist_songs=False,
-#      db_name='mixmaker',
-#      section='Most popular',
-#      artists_to_scrape = artists_to_scrape)
-
-main(url='https://www.whosampled.com/genre/Hip-Hop/',
+main(url='https://www.whosampled.com/genre/Soul-Funk-Disco/',
      get_genre=True,
      get_first_artist_songs=True,
      db_name='mixmaker',
-     section='Most influential')
-
-main(url='https://www.whosampled.com/genre/Electronic-Dance/',
-     get_genre=True,
-     db_name='mixmaker',
-     section='Most influential')
-
-main(url='https://www.whosampled.com/genre/Electronic-Dance/',
-     get_genre=True,
-     db_name='mixmaker',
-     section='Most popular')
-
-
-# scrape_songs()
-
-
+     section='Most popular artists')
 
 
 
