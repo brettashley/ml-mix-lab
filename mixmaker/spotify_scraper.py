@@ -26,7 +26,6 @@ class SpotifyScraper():
 
     def get_artist_uri(self, artist_name):
         artist_uri = []
-        followers = []
         results = self.spotify.search(artist_name, type='artist')
         for item in results['artists']['items']:
             if item['name'] == artist_name:
