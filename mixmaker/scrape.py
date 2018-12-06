@@ -12,7 +12,7 @@ def main(url=None,
          get_genre=True,
          get_first_artist_songs=True,
          artists_to_scrape=None,
-         db_name='mixmaker2',
+         db_name='mixmaker',
          section='Most influential'):
     
     s = Scraper()
@@ -28,7 +28,6 @@ def main(url=None,
         db.write_artists(artists)
 
         artists_to_scrape = []
-        scraped_status = []
         for artist in artists:
             artist_dict = db.get_artist_info(url=artist["url"])
             if artist_dict["scraped"] == 0:
@@ -96,23 +95,40 @@ def scrape_songs():
             sampled_id = db.get_song_id(song_dict['url'])
             db.insert_contains_sample(sampled_id, song['id'])
 
+main(get_genre=False,
+     get_first_artist_songs=True,
+     db_name='mixmaker')
 
 
 
 
 
+artists_to_scrape =  [3844, 10863, 8538, 5199, 8653, 7589, 6453, 8260, 5453, 898, 1074, 9090, 4523, 4313]
 
-# artists_to_scrape = [485, 489, 1749, 60, 476, 350, 3351]
+main(url='https://www.whosampled.com/genre/Rock-Pop/',
+     get_genre=False,
+     get_first_artist_songs=True,
+     db_name='mixmaker',
+     artists_to_scrape=artists_to_scrape)
 
-# main(url=url_soul_funk_disco, get_genre=False, get_first_artist_songs=True)
+main(url='https://www.whosampled.com/genre/Rock-Pop/',
+     get_genre=True,
+     get_first_artist_songs=True,
+     db_name='mixmaker',
+     section='Most influential')
 
-main(url='https://www.whosampled.com/genre/Soul-Funk-Disco/',
+
+main(url='https://www.whosampled.com/genre/World/',
      get_genre=True,
      get_first_artist_songs=True,
      db_name='mixmaker',
      section='Most popular artists')
 
-
+main(url='https://www.whosampled.com/genre/World/',
+     get_genre=True,
+     get_first_artist_songs=True,
+     db_name='mixmaker',
+     section='Most influential')
 
 
 
