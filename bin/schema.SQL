@@ -21,7 +21,8 @@ DROP TABLE IF EXISTS song_features;
 --   corrected_name        VARCHAR,
 --   url                   VARCHAR,
 --   scraped               INTEGER,
---   scraped_spotify       INTEGER
+--   scraped_spotify       INTEGER,
+--   checked               INTEGER
 -- );
 
 -- CREATE TABLE connections (
