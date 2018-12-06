@@ -2,6 +2,7 @@ import psycopg2
 import pandas as pd
 from psycopg2.extras import Json
 from psycopg2 import sql
+import re
 
 
 class DatabaseInteraction():
@@ -10,6 +11,7 @@ class DatabaseInteraction():
         self.db_name = db_name
         self.conn = psycopg2.connect(dbname=self.db_name, host=host)
         self.cur = self.conn.cursor()
+        self.artists = None
 
     def get_table(self, table_name, filters_as_where_clause=''):
         query = " SELECT * FROM {}" + filters_as_where_clause + ";"
@@ -92,8 +94,9 @@ class DatabaseInteraction():
                 song['artist_id'] = [x for (x,) in self.cur][0]
 
             query = f"""   
-                INSERT INTO songs (artist_id, name, url, scraped)
-                SELECT %s, %s, %s, 0
+                INSERT INTO songs (artist_id, name, url, scraped, scraped_spotify,
+                    corrected_name, corrected_artist_id, checked)
+                SELECT %s, %s, %s, 0, 0, '', 0, 0
                 WHERE %s NOT IN (
                             SELECT url FROM songs
                             );
@@ -355,10 +358,55 @@ class DatabaseInteraction():
         output.columns = ['artist_name', 'song_name']
         return output
 
+
+    def _write_corrected_artist_ids(self):
+        is_output = True
+        while is_output:
+            if self.artists is None:
+                self.artists = self.get_table('artists')
+
+            query = """
+                    SELECT id, artist_id, url
+                    FROM songs
+                    WHERE corrected_artist_id = 0
+                    ORDER BY id
+                    LIMIT 1;
+                    """
+            self.cur.execute(query)
+            self.conn.commit()
+            df = pd.DataFrame([x for x in self.cur], columns=['id', 'artist_id', 'song_url'])
+            if len(df) > 0:
+
+                df['correct_artist_url'] = (df['song_url']
+                                    .apply(self._extract_real_artist_url))
+
+                merged = df.merge(self.artists, left_on='correct_artist_url', right_on='url',
+                                                             suffixes=('_song', '_artist'))
+                
+                if len(merged) > 0:    
+                    merged['corrected_artist_id'] = merged.apply(self._correct_artist_ids, axis=1)                
+                    corrected_id = merged.loc[0, 'corrected_artist_id'].astype(float)
+                else:
+                    corrected_id = df.loc[0, 'artist_id'].astype(float)
+
+                id_song = df.loc[0, 'id'].astype(float)
+
+
+                query = """
+                        UPDATE songs
+                        SET corrected_artist_id = %s
+                        WHERE id = %s
+                        """
+
+                self.cur.execute(query, (corrected_id, id_song))
+                self.conn.commit()
+            else:
+                is_output = False
+                print('done')
         
     def _extract_real_artist_url(self, url):
         splits = url.split('/')
-        if (splits[5] == 'tv') or (splits[5] == 'movie'):
+        if (splits[3] == 'tv') or (splits[3] == 'movie'):
             return '/'.join(splits[:5]) + '/' 
         else:
             return '/'.join(splits[:4]) + '/'
@@ -368,20 +416,49 @@ class DatabaseInteraction():
             return df['name']
         else:
             return df['artist_name']
+    
+    def _correct_artist_ids(self, df):
+        if df['artist_id'] != df['id_artist']:
+            return df['id_artist']
+        else:
+            return df['artist_id']
+
+
+    def _fix_song_titles(self):
+        songs = self.get_table('songs')
+        songs['correct_song_titles'] = songs.apply(self._find_replace_for_song_titles)
 
 
 
+    def _find_replace_for_song_titles(self):
+        is_output = True
+        while is_output:
+            query = """
+                    SELECT id, name
+                    FROM songs
+                    WHERE corrected_name = ''
+                    LIMIT 1;
+                    """
+            self.cur.execute(query)
+            self.conn.commit()
+        
+            song = [x for x in self.cur]
 
-    def strip_years_from_name(self, update_all=True, artist_id=None, song_id=None):
+            if len(song) > 0:
+                song_id = song[0][0]
+                split = song[0][1].split('\n')
+                new_title = re.sub(r' \((19|20)[0-9]{2}\)', '' ,split[0])
 
-        query = """
-            UPDATE songs
-            SET name = REGEXP_REPLACE(name, ' \((19|20)\d{2}\)', '')
-            ;"""
-
-        self.cur.execute(sql.SQL(query))
-        self.conn.commit()
-
+                query = """
+                        UPDATE songs
+                        SET corrected_name = %s
+                        WHERE id = %s
+                        """
+                self.cur.execute(query, (new_title, song_id))
+                self.conn.commit()
+            else:
+                is_output = False
+                print('done')
 
 
     def fix_similar_url_ids(self):
