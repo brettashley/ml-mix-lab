@@ -133,9 +133,13 @@ class DatabaseInteraction():
         arist :  dictionary of next artist to scrape      
         """
         query = """
-                SELECT id, url, name FROM artists
-                WHERE scraped = 0
-                ORDER BY id
+                SELECT a.id, a.url, a.name 
+                FROM artists a
+                LEFT JOIN songs s
+                ON a.id = s.artist_id
+                WHERE a.scraped = 0
+                GROUP BY a.id, a.url, a.name
+                ORDER BY count(s.artist_id) DESC
                 LIMIT 1
                 """
 
@@ -214,6 +218,13 @@ class DatabaseInteraction():
                 sample_song_id))
         self.conn.commit()
 
+        self.cur.execute(query, (
+                sample_song_id,
+                song_id,
+                sample_song_id,
+                song_id))
+        self.conn.commit()
+
     def get_song_id(self, song_url):
         query = """   
                 SELECT id
@@ -251,18 +262,27 @@ class DatabaseInteraction():
                 'scraped': output[0][3]}
         
     def get_next_artist_for_spotify(self):
-        query = """   
-                SELECT a.name, count(s.artist_id) as artist_freq
+        """ 
+        Returns
+        -------
+        arist :  dictionary of next artist to scrape      
+        """
+        query = """
+                SELECT a.id, a.name 
                 FROM artists a
-                JOIN songs s
+                LEFT JOIN songs s
                 ON a.id = s.artist_id
-                GROUP BY a.id
-                HAVING a.scraped_spotify = 0
-                ORDER BY artist_freq DESC
-                LIMIT 1;
+                WHERE a.scraped_spotify = 0
+                GROUP BY a.id, a.name
+                ORDER BY count(s.artist_id) DESC
+                LIMIT 1
                 """
+
         self.cur.execute(query)
         self.conn.commit()
+        output = list(self.cur)
+        return {'id' : output[0][0],
+                'name': output[0][1]}
 
 
     def update_scraped_spotify_status(self, table, id_to_update, status):
@@ -308,25 +328,34 @@ class DatabaseInteraction():
         # result = list(self.cur) 
         pass
 
+    def get_artist_names(self):
+        query = """   
+                SELECT id, name
+                from artists;
+                """
+        self.cur.execute(query)
+        self.conn.commit()
+        return pd.DataFrame([x for x in self.cur], columns=['id', 'name'])
+
     
     def get_song_and_artist_names(self, artist_id = None, song_id=None):
             
         if (artist_id, song_id) == (None, None):
             query = """
-                SELECT a.name, s.name, s.url
+                SELECT s.id, a.name, s.corrected_name
                 FROM songs s
                 LEFT JOIN artists a
-                ON s.artist_id = a.id
+                ON s.corrected_artist_id = a.id
                 ;"""
 
             self.cur.execute(sql.SQL(query))
 
         elif song_id is not None:
             query = """
-                SELECT a.name, s.name, s.url
+                SELECT s.id, a.name, s.corrected_name
                 FROM songs s
                 LEFT JOIN artists a
-                ON s.artist_id = a.id
+                ON s.corrected_artist_id = a.id
                 WHERE s.id = %s
                 ;"""
 
@@ -334,29 +363,20 @@ class DatabaseInteraction():
 
         elif artist_id is not None:
             query = """
-                SELECT a.name, s.name, s.url
+                SELECT s.id, a.name, s.corrected_name
                 FROM songs s
                 LEFT JOIN artists a
-                ON s.artist_id = a.id
-                WHERE a.id = %s
+                ON s.corrected_artist_id = a.id
+                WHERE s.corrected_artist_id = %s
                 ;"""
 
             self.cur.execute(sql.SQL(query), (artist_id,))
 
         self.conn.commit()
-        df = pd.DataFrame(list(self.cur),
-                          columns=['artist_name', 'song_name', 'song_url'])
+        return pd.DataFrame(list(self.cur),
+                          columns=['id', 'artist_name', 'song_name'])
         
-        df['correct_artist_url'] = (df['song_url']
-                                    .apply(self._extract_real_artist_url))
 
-        artists = self.get_table('artists')
-        merged = df.merge(artists, left_on='correct_artist_url', right_on='url')
-        merged['correct_artist_name'] = merged.apply(self._correct_artist_names, axis=1)
-
-        output =  merged.loc[:,['correct_artist_name', 'song_name']]
-        output.columns = ['artist_name', 'song_name']
-        return output
 
 
     def _write_corrected_artist_ids(self):
@@ -524,5 +544,60 @@ class DatabaseInteraction():
             else:
                 is_output = False
                 print('done')
+
+        
+    def write_symmetric_connections(self):
+        is_output=True
+        counter = 0
+        while is_output:
+            query = """
+                    SELECT song_id, sampled_by_song_id
+                    FROM connections
+                    WHERE checked = 0
+                    LIMIT 1
+                    """
+            self.cur.execute(query)
+            self.conn.commit()
+            ids = [x for x in self.cur]
+            if len(ids) > 0:
+                song_id = ids[0][0]
+                sample_song_id = ids[0][1]
+
+
+                query = f"""   
+                    INSERT INTO connections (song_id, sampled_by_song_id, is_connected)
+                    
+                    SELECT %s, %s, 1
+                            
+                    WHERE (%s, %s) NOT IN (
+                                SELECT song_id, sampled_by_song_id FROM connections
+                                );
+                            """
+
+                self.cur.execute(query, (
+                        sample_song_id,
+                        song_id,
+                        sample_song_id,
+                        song_id))
+                self.conn.commit()
+
+                query = """
+                        UPDATE connections
+                        SET checked = 1
+                        WHERE song_id = %s
+                        AND sampled_by_song_id = %s
+                        ;"""
+
+                self.cur.execute(
+                    sql.SQL(query),
+                    (song_id, sample_song_id))
+                self.conn.commit()
+
+
+                counter += 1
+                if counter % 100 == 0:
+                    print(counter)
+            else:
+                is_output=False
 
 
