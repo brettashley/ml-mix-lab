@@ -32,6 +32,7 @@ class SongRecommender():
                             nonnegative=self.nonnegative,
                             regParam=self.regParam,
                             rank=self.rank)
+
         self.spark = (ps.sql.SparkSession.builder 
                         .master("local[4]") 
                         .appName("afternoon sprint") 
@@ -111,8 +112,8 @@ class SongRecommender():
 
             new_combos = []
             while len(new_combos) < n_new_combos:
-                val1 = np.random.choice(col1_uniques, seed=seed)
-                val2 = np.random.choice(col2_uniques, seed=2*seed)
+                val1 = np.random.choice(col1_uniques)
+                val2 = np.random.choice(col2_uniques)
                 # print(f'trying {(val1, val2)}')
                 if len(df.loc[(df[col1] == val1) & (df[col2] == val2)]) == 0:
                     new_combos.append((val1, val2))
@@ -137,7 +138,8 @@ class SongRecommender():
             dataset.filter('sampled_by_song_id = %s' % song_id), 2*n_predictions)
         df = one_rec.toPandas()
         song_id_list = list([song_id] * 10)
-        song_id_df = pd.DataFrame(song_id_list, columns=['sampled_by_song_id'])
+        song_id_df = (pd.DataFrame(song_id_list, columns=['sampled_by_song_id'])
+                        .reset_index())
         recs_df = pd.DataFrame(df.loc[0,'recommendations'],
                         columns=['song_id', 'rating'])
         return song_id_df.merge(recs_df, left_index=True, right_index=True)
