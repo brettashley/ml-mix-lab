@@ -39,6 +39,10 @@ def artist_songs(artist_id):
 def get_selector_for_songs(artist_id):
     return wfh.get_selector_for_songs(artist_id)
 
+@app.route('/get_predictions/<int:song_id>')
+def get_predictions(song_id):
+    return wfh.get_predictions(song_id)
+
 
 # @app.route('/recommendations/<id>')   
 # def recommendations(id):

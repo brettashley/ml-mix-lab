@@ -92,7 +92,7 @@
           </div>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">Mix maker uses years of sampling and mixing data to determine what songs will sound great when mixed together. With collaborative filtering technology and song feature matching, you will have a great mix in no time!</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Start Mixing</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#artists">Start Mixing</a>
           </div>
         </div>
       </div>
@@ -122,7 +122,22 @@
             <div id="choose_song">
               {{ artist_songs|safe }}
             </div>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get recommendations</a>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#results">Get recommendations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary" id="results">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">Create your mix!</h2>
+            <hr class="light my-4">
+            <div id="results">
+              {{ results|safe }}
+            </div>
             </div>
           </div>
         </div>
