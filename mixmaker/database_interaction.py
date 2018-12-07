@@ -126,22 +126,31 @@ class DatabaseInteraction():
 
 
 
-    def get_next_artist_to_scrape(self):
+    def get_next_artist_to_scrape(self, sort_by_freq=True):
         """ 
         Returns
         -------
         arist :  dictionary of next artist to scrape      
         """
-        query = """
-                SELECT a.id, a.url, a.name 
-                FROM artists a
-                LEFT JOIN songs s
-                ON a.id = s.artist_id
-                WHERE a.scraped = 0
-                GROUP BY a.id, a.url, a.name
-                ORDER BY count(s.artist_id) DESC
-                LIMIT 1
-                """
+        if sort_by_freq:
+            query = """
+                    SELECT a.id, a.url, a.name 
+                    FROM artists a
+                    LEFT JOIN songs s
+                    ON a.id = s.artist_id
+                    WHERE a.scraped = 0
+                    GROUP BY a.id, a.url, a.name
+                    ORDER BY count(s.artist_id) DESC
+                    LIMIT 1
+                    """
+        else:
+            query = """
+                    SELECT id, url, name 
+                    FROM artists
+                    WHERE scraped = 0
+                    ORDER BY id
+                    LIMIT 1
+                    """       
 
         self.cur.execute(query)
         self.conn.commit()
@@ -316,17 +325,20 @@ class DatabaseInteraction():
             return [x for x in result][0]
 
     def get_predictions_for_song(self, song_id):
-        # query = """
-        #         SELECT id, name, url
-        #         FROM songs
-        #         WHERE name = %s
-        #         AND artist_id = %s
-        #         """
+        query = """
+                SELECT a.name, p.item_song_id, s.url
+                FROM predictions p
+                LEFT JOIN songs s
+                ON p.item_song_id = s.id
+                LEFT JOIN artists a
+                ON s.corrected_artist_id = a.id
+                WHERE s.id = %s
+                """
 
-        # self.cur.execute(query, (song_title, artist_id))
-        # self.conn.commit()
-        # result = list(self.cur) 
-        pass
+        self.cur.execute(query, (song_id,))
+        self.conn.commit()
+        return list(self.cur) 
+        
 
     def get_artist_names(self):
         query = """   
@@ -600,4 +612,27 @@ class DatabaseInteraction():
             else:
                 is_output=False
 
+    def write_song_to_song_connection(self):
+        query = """
+                SELECT song_id
+                FROM connections
+                """
+        self.cur.execute(query)
+        self.conn.commit()
+        ids = [x for (x,) in self.cur]
+        ids_set = set(ids)
+        for song_id in ids_set:
+            query = """   
+                    INSERT INTO connections (song_id, sampled_by_song_id, is_connected)
+                    SELECT %s, %s, 1
+                    WHERE (%s, %s) NOT IN (
+                            SELECT song_id, sampled_by_song_id FROM connections
+                            )
+                    """
 
+            self.cur.execute(query, (
+                    song_id,
+                    song_id,
+                    song_id,
+                    song_id))
+            self.conn.commit()
