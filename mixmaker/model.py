@@ -6,7 +6,6 @@ from pyspark.sql.functions import udf
 import psycopg2
 from pyspark.ml.recommendation import ALS
 from pandas.io import sql
-from sklearn.model_selection import train_test_split
 from pyspark.ml.evaluation import RegressionEvaluator
 from itertools import product
 
@@ -18,7 +17,8 @@ class SongRecommender():
                 ratingCol='is_connected',
                 nonnegative=True,
                 regParam=0.01,
-                rank=10):
+                rank=10,
+                alpha=1):
 
         self.itemCol = itemCol
         self.userCol = userCol
@@ -26,12 +26,14 @@ class SongRecommender():
         self.nonnegative = nonnegative
         self.regParam = regParam
         self.rank = rank
+        self.alpha = alpha
         self.als_model = ALS(itemCol=self.itemCol,
                             userCol=self.userCol,
                             ratingCol=self.ratingCol,
                             nonnegative=self.nonnegative,
                             regParam=self.regParam,
-                            rank=self.rank)
+                            rank=self.rank,
+                            alpha=self.alpha)
 
         self.spark = (ps.sql.SparkSession.builder 
                         .master("local[4]") 
@@ -42,14 +44,13 @@ class SongRecommender():
     
     def fit(self, X):
         return self.als_model.fit(X)
+         
 
     def transform(self, recommender, X):
         return recommender.transform(X)
 
-    def _get_negative_targets(self, ):
-        pass
 
-    def RMSE(self, predictions, has_nan_values=False):
+    def rmse(self, predictions, has_nan_values=False):
         evaluator = RegressionEvaluator(metricName='rmse', 
                                        labelCol=self.ratingCol,
                                        predictionCol='prediction')
@@ -138,12 +139,21 @@ class SongRecommender():
             dataset.filter('sampled_by_song_id = %s' % song_id), 2*n_predictions)
         df = one_rec.toPandas()
         song_id_list = list([song_id] * 10)
-        song_id_df = (pd.DataFrame(song_id_list, columns=['sampled_by_song_id'])
-                        .reset_index())
+        song_id_df = pd.DataFrame(song_id_list, columns=['sampled_by_song_id'])
         recs_df = pd.DataFrame(df.loc[0,'recommendations'],
                         columns=['song_id', 'rating'])
         return song_id_df.merge(recs_df, left_index=True, right_index=True)
-        
+    
+
+    def get_predictions_for_all_users(self, recommender, n_predictions=10):
+        recs = recommender.recommendForAllUsers(n_predictions)
+        recs_df = recs.toPandas()
+        output = pd.DataFrame(columns=['user_song_id', 'item_song_id', 'rating'])
+        for i, row in recs_df.iterrows():
+            df = pd.DataFrame(row[1], columns=['item_song_id', 'rating'])
+            df['user_song_id'] = list([row[0]] * 10)
+            output = pd.concat([output, df], sort=True)   
+        return output.loc[:,['user_song_id', 'item_song_id', 'rating']]
 
 
 
