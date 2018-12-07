@@ -22,7 +22,7 @@ class WebFunctionHandler():
     def get_artist_selections(self, n_artists):
         artists = self.db.get_artist_names()
         artists = artists.sort_values(by='id').set_index('id')
-        output = '<select name="artists" size="5">'
+        output = '<select id="artists_selection" size="5">'
         for i, artist in artists.iterrows():
             if i < n_artists:
                 artist_id = i
@@ -35,12 +35,13 @@ class WebFunctionHandler():
     def get_selector_for_songs(self, artist_id):
         songs_df = self.db.get_song_and_artist_names(artist_id=artist_id)
         songs_df = songs_df.set_index('id')
-        output = '<select name="songs" size="5">'
+        output = '<select id="songs" size="5">'
         for i, song in songs_df.iterrows():
                 song_id = i
                 song_name = song[1]
                 output += f'\n    <option value="{song_id}">{song_name}</option>'
         return output + '\n</select>'
+
 
     
         

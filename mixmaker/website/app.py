@@ -28,7 +28,16 @@ def artist_songs(artist_id):
     return render_template('index.html',
                                 artist_songs=artist_songs)
     
+# @app.route('/recommendations/<int:song_id>')
+# def recommendations(song_id):
+#     """Return recommendations for a song."""
+#     recommendations = wfh.get_recommendations_for_a_song(song_id)
+#     return render_template('index.html',
+#                                 artist_songs=artist_songs)
 
+@app.route('/get_selector_for_songs/<int:artist_id>')
+def get_selector_for_songs(artist_id):
+    return wfh.get_selector_for_songs(artist_id)
 
 
 # @app.route('/recommendations/<id>')   

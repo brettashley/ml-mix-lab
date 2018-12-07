@@ -11,33 +11,48 @@
     <title>Mix Maker</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/creative.css" rel="stylesheet">
+    <link href="/css/creative.css" rel="stylesheet">
 
     <style>
-      table td {color:white;}
+      div#artist_songs {color:white}
     </style>
 
-    <script type="text/javascript" src="brython.js"></script>
-    <script type="text/javascript" src="brython_stdlib.js"></script>
+    <script type="text/javascript" src="/js/brython.js"></script>
+    <script type="text/javascript" src="/js/brython_stdlib.js"></script>
   </head>
 
   <body id="page-top" onload="brython(1)">
     <script type="text/python3">
       from browser import document, ajax
+
+      def update_artist_songs(response):
+          if response.status==200 or response.status==0:
+              document["choose_song"].html = response.text
+          else:
+              print("error") + response.text
+      
+      def get_artist_songs(ev):
+          """Show table of all songs for a particular artist"""
+          req = ajax.ajax()
+          req.bind('complete', update_artist_songs)
+          artist_id = document["artists_selection"].value
+          req.open('GET', f'/get_selector_for_songs/{artist_id}', True)
+          req.set_header('content-type','application/x-www-form-urlencoded')
+          req.send()
     
 
-
+      document["get_songs_button"].bind("click", get_artist_songs)
 
     </script>
     <!-- Navigation -->
@@ -83,19 +98,38 @@
       </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section class="bg-primary" id="artists">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+              <h2 class="section-heading text-white">Choose an artist!</h2>
+              <div id="choose_artist">
+                {{ artists_selection|safe }}
+                <br>
+                <a id="get_songs_button" class="btn btn-light btn-xl js-scroll-trigger" href="#songs">Get Songs</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="bg-primary" id="songs">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white">Pick a song you want to mix!</h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4">Search</p>
+            <div id="choose_song">
+              {{ artist_songs|safe }}
+            </div>
             <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get recommendations</a>
-            {{ artist_names|safe }}
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+
 
         
  
