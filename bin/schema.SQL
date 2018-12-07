@@ -34,10 +34,6 @@ DROP TABLE IF EXISTS song_features;
 CREATE TABLE predictions (
   user_song_id          INTEGER,
   item_song_id          INTEGER,
-  user_song_name        VARCHAR,
-  user_song_artist      VARCHAR,
-  item_song_name        VARCHAR,
-  item_song_artist      VARCHAR,
   rating                INTEGER
 );
 
