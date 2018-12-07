@@ -25,7 +25,7 @@
     <link href="/css/creative.css" rel="stylesheet">
 
     <style>
-      div#artist_songs {color:white}
+      table.dataframe {color:white}
     </style>
 
     <script type="text/javascript" src="/js/brython.js"></script>
@@ -50,9 +50,26 @@
           req.open('GET', f'/get_selector_for_songs/{artist_id}', True)
           req.set_header('content-type','application/x-www-form-urlencoded')
           req.send()
+
+      def update_predictions(response):
+          if response.status==200 or response.status==0:
+              document["results"].html = response.text
+          else:
+              print("error") + response.text
+      
+      def get_predictions(ev):
+          """Show table of all songs for a particular artist"""
+          req = ajax.ajax()
+          req.bind('complete', update_predictions)
+          song_id = document["artist_songs"].value
+          req.open('GET', f'/get_predictions/{song_id}', True)
+          req.set_header('content-type','application/x-www-form-urlencoded')
+          req.send()
     
 
       document["get_songs_button"].bind("click", get_artist_songs)
+      document["get_results_button"].bind("click", get_predictions)
+
 
     </script>
     <!-- Navigation -->
@@ -122,7 +139,7 @@
             <div id="choose_song">
               {{ artist_songs|safe }}
             </div>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#results">Get recommendations</a>
+            <a id="get_results_button" class="btn btn-light btn-xl js-scroll-trigger" href="#results">Get recommendations</a>
             </div>
           </div>
         </div>
