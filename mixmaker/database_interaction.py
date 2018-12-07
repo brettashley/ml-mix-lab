@@ -234,6 +234,20 @@ class DatabaseInteraction():
                 song_id))
         self.conn.commit()
 
+        self.cur.execute(query, (
+                song_id,
+                song_id,
+                song_id,
+                song_id))
+        self.conn.commit()
+
+        self.cur.execute(query, (
+                sample_song_id,
+                sample_song_id,
+                sample_song_id,
+                sample_song_id))
+        self.conn.commit()
+
     def get_song_id(self, song_url):
         query = """   
                 SELECT id
@@ -388,7 +402,30 @@ class DatabaseInteraction():
         return pd.DataFrame(list(self.cur),
                           columns=['id', 'artist_name', 'song_name'])
         
+    def get_artist_songs_with_predictions(self, artist_id):
+        query = """
+            SELECT s.id, max(a.name), max(s.corrected_name)
+            FROM songs s
+            LEFT JOIN artists a
+            ON s.corrected_artist_id = a.id
+            INNER JOIN predictions p
+            ON s.id = p.user_song_id
+            GROUP BY p.user_song_id, s.id
+            HAVING s.corrected_artist_id = %s
+            ;"""
+        self.cur.execute(sql.SQL(query), (artist_id,))
+        self.conn.commit()
+        return pd.DataFrame(list(self.cur),
+                          columns=['id', 'artist_name', 'song_name'])
 
+
+
+class DatabaseManipulation():
+
+    def __init__(self, db_name='mixmaker', host='localhost'):
+        self.db_name = db_name
+        self.conn = psycopg2.connect(dbname=self.db_name, host=host)
+        self.cur = self.conn.cursor()
 
 
     def _write_corrected_artist_ids(self):
