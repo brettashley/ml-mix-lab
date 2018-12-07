@@ -326,18 +326,18 @@ class DatabaseInteraction():
 
     def get_predictions_for_song(self, song_id):
         query = """
-                SELECT a.name, p.item_song_id, s.url
+                SELECT a.name, s.corrected_name, s.url
                 FROM predictions p
                 LEFT JOIN songs s
                 ON p.item_song_id = s.id
                 LEFT JOIN artists a
                 ON s.corrected_artist_id = a.id
-                WHERE s.id = %s
+                WHERE p.user_song_id = %s
                 """
 
         self.cur.execute(query, (song_id,))
         self.conn.commit()
-        return list(self.cur) 
+        return pd.DataFrame(list(self.cur), columns=['artist', 'song', 'url'])
         
 
     def get_artist_names(self):
