@@ -96,7 +96,7 @@ def scrape_songs():
             db.insert_contains_sample(sampled_id, song['id'])
 
 main(get_genre=False,
-     get_first_artist_songs=True,
+     get_first_artist_songs=False,
      db_name='mixmaker')
 
 
