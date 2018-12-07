@@ -42,6 +42,10 @@ class WebFunctionHandler():
                 output += f'\n    <option value="{song_id}">{song_name}</option>'
         return output + '\n</select>'
 
+    def get_predictions(self, song_id):
+        results_df = db.get_predictions_for_song(song_id)
+        return results_df.loc[:,:2].to_html()
+
 
     
         
