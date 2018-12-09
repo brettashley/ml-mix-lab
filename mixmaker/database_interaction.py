@@ -649,16 +649,20 @@ class DatabaseManipulation():
             else:
                 is_output=False
 
-    def write_song_to_song_connection(self):
+    def write_song_to_song_connection(self, min_id=1):
         query = """
                 SELECT song_id
                 FROM connections
+                WHERE song_id > %s
                 """
-        self.cur.execute(query)
+        self.cur.execute(query, (min_id,))
         self.conn.commit()
         ids = [x for (x,) in self.cur]
+        print(f'Fixing {len(ids)} entries')
         ids_set = set(ids)
-        for song_id in ids_set:
+        for i, song_id in enumerate(ids_set):
+            if i % 100 == 0:
+                print(i)
             query = """   
                     INSERT INTO connections (song_id, sampled_by_song_id, is_connected)
                     SELECT %s, %s, 1
