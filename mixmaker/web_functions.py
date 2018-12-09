@@ -33,9 +33,9 @@ class WebFunctionHandler():
         return output + '\n</select>'
 
     def get_selector_for_songs(self, artist_id):
-        songs_df = self.db.get_song_and_artist_names(artist_id=artist_id)
-        songs_df = songs_df.set_index('id')
-        output = '<select id="songs" size="5">'
+        songs_df = self.db.get_artist_songs_with_predictions(artist_id=artist_id)
+        songs_df = songs_df.sort_values('song_name').set_index('id')
+        output = '<select id="artist_songs" size="5">'
         for i, song in songs_df.iterrows():
                 song_id = i
                 song_name = song[1]
@@ -44,7 +44,7 @@ class WebFunctionHandler():
 
     def get_predictions(self, song_id):
         results_df = db.get_predictions_for_song(song_id)
-        return results_df.loc[:,:2].to_html()
+        return results_df.loc[:,['artist', 'song']].to_html()
 
 
     
