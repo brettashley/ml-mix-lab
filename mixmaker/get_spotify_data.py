@@ -10,3 +10,5 @@ def get_artist(artist_id=None, artist_name=None):
         artist = db.get_next_artist_for_spotify()
         artist_name = artist['name']
     tracks = ss.search_artist_get_tracks(artist['name'])
+    song_titles, song_features = ss.get_song_features(tracks)
+
