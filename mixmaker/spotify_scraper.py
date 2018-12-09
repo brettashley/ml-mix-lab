@@ -73,7 +73,7 @@ class SpotifyScraper():
             artists[n] = artist['uri']
         return artists[popularity.argmax()].decode('utf-8')
     
-    def get_song_names(self, song_list, song_titles=None, song_features=None):
+    def get_song_names_and_features(self, song_list, song_titles=None, song_features=None):
 
         if song_titles is None:
             song_features = {}
