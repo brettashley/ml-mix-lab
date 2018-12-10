@@ -508,12 +508,6 @@ class DatabaseManipulation():
             return df['artist_id']
 
 
-    def _fix_song_titles(self):
-        songs = self.get_table('songs')
-        songs['correct_song_titles'] = songs.apply(self._find_replace_for_song_titles)
-
-
-
     def _find_replace_for_song_titles(self):
         is_output = True
         while is_output:
