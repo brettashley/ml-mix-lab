@@ -6,36 +6,32 @@ DROP TABLE IF EXISTS predictions;
 DROP TABLE IF EXISTS song_features;
 
 
--- CREATE TABLE artists (
---   id                    SERIAL PRIMARY KEY NOT NULL,
---   name                  VARCHAR,
---   url                   VARCHAR,
---   scraped               INTEGER,
---   scraped_spotify       INTEGER
--- );
-
--- CREATE TABLE songs (
---   id                    SERIAL PRIMARY KEY NOT NULL,
---   artist_id             INTEGER,
---   name                  VARCHAR,
---   corrected_name        VARCHAR,
---   url                   VARCHAR,
---   scraped               INTEGER,
---   scraped_spotify       INTEGER,
---   checked               INTEGER
--- );
-
--- CREATE TABLE connections (
---   song_id               INTEGER,
---   sampled_by_song_id    INTEGER,
---   is_connected          INTEGER
--- );
-
-CREATE TABLE predictions (
-  user_song_id          INTEGER,
-  item_song_id          INTEGER,
-  rating                INTEGER
+CREATE TABLE artists (
+  id                    SERIAL PRIMARY KEY NOT NULL,
+  name                  VARCHAR,
+  url                   VARCHAR,
+  scraped               INTEGER,
+  scraped_spotify       INTEGER
 );
+
+CREATE TABLE songs (
+  id                    SERIAL PRIMARY KEY NOT NULL,
+  artist_id             INTEGER,
+  name                  VARCHAR,
+  corrected_name        VARCHAR,
+  url                   VARCHAR,
+  scraped               INTEGER,
+  scraped_spotify       INTEGER,
+  checked               INTEGER,
+  corrected_artist_id   INTEGER
+);
+
+CREATE TABLE connections (
+  song_id               INTEGER,
+  sampled_by_song_id    INTEGER,
+  is_connected          INTEGER
+);
+
 
 
 CREATE TABLE song_features (
@@ -58,3 +54,8 @@ CREATE TABLE song_features (
   duration_ms           INTEGER,
   time_signature        INTEGER
 );
+
+CREATE TABLE predictions (
+  user_song_id INTEGER,
+  item_song_id INTEGER,
+  rating NUMERIC);
