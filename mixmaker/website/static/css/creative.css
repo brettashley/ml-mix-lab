@@ -48,7 +48,15 @@ h6 {
 }
 
 .bg-dark {
-  background-color: #212529 !important;
+  background-image: url("../static/img/bg-image1.jpg") !important;
+}
+
+.bg-picture {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 56px);
+  background-image: url("../static/img/bg-image1.jpg");
+  background-position: center center;
+  background-size: cover;
 }
 
 .text-faded {
@@ -178,7 +186,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/header.jpg");
+  background-image: url("../static/img/header.jpg");
   background-position: center center;
   background-size: cover;
 }
