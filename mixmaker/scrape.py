@@ -13,7 +13,8 @@ def main(url=None,
          get_first_artist_songs=True,
          artists_to_scrape=None,
          db_name='mixmaker',
-         section='Most influential'):
+         section='Most influential',
+         get_artist_by_freq=True):
     
     s = Scraper()
     db = DatabaseInteraction(db_name=db_name)
@@ -35,14 +36,14 @@ def main(url=None,
 
     print(f'Scraping artists: {artists_to_scrape}')
     if artists_to_scrape is None:
-        n_artists_to_scrape = 5
+        n_artists_to_scrape = 100
     else:
         n_artists_to_scrape = len(artists_to_scrape)
 
     for i in range(n_artists_to_scrape):
         # get next artist to scrape
         if artists_to_scrape is None:
-            artist = db.get_next_artist_to_scrape()
+            artist = db.get_next_artist_to_scrape(get_artist_by_freq)
 
         else:
             artist = db.get_artist_info(artist_id=artists_to_scrape[i])
@@ -96,41 +97,9 @@ def scrape_songs():
             db.insert_contains_sample(sampled_id, song['id'])
 
 main(get_genre=False,
-     get_first_artist_songs=False,
-     db_name='mixmaker')
-
-
-
-
-
-artists_to_scrape =  [3844, 10863, 8538, 5199, 8653, 7589, 6453, 8260, 5453, 898, 1074, 9090, 4523, 4313]
-
-main(url='https://www.whosampled.com/genre/Rock-Pop/',
-     get_genre=False,
      get_first_artist_songs=True,
      db_name='mixmaker',
-     artists_to_scrape=artists_to_scrape)
-
-main(url='https://www.whosampled.com/genre/Rock-Pop/',
-     get_genre=True,
-     get_first_artist_songs=True,
-     db_name='mixmaker',
-     section='Most influential')
-
-
-main(url='https://www.whosampled.com/genre/World/',
-     get_genre=True,
-     get_first_artist_songs=True,
-     db_name='mixmaker',
-     section='Most popular artists')
-
-main(url='https://www.whosampled.com/genre/World/',
-     get_genre=True,
-     get_first_artist_songs=True,
-     db_name='mixmaker',
-     section='Most influential')
-
-
+     get_artist_by_freq=True)
 
 
 
