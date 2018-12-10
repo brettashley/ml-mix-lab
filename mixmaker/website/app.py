@@ -29,7 +29,8 @@ def get_selector_for_songs(artist_id):
 
 @app.route('/get_predictions/<int:song_id>')
 def get_predictions(song_id):
-    return wfh.get_predictions(song_id)
+    data = wfh.get_predictions(song_id)
+    return render_template('recommender_table.html', data=data)
 
 
 # @app.route('/artist/<int:artist_id>')
