@@ -44,7 +44,7 @@ class WebFunctionHandler():
 
     def get_predictions(self, song_id):
         results_df = db.get_predictions_for_song(song_id)
-        return results_df.loc[:,['artist', 'song']].to_html()
+        return results_df.loc[:,['artist', 'song', 'url']].to_dict(orient='records')
 
 
     
