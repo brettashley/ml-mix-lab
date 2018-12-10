@@ -1,0 +1,16 @@
+<table class="recommender" align="center">
+    <thead>
+        <tr>
+            <th>Artist Name</th>
+            <th>Song</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row['artist'] }}</td>
+            <td><a href="{{row['url']}}">{{ row['song']}}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
