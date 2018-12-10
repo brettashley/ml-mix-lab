@@ -426,13 +426,28 @@ class DatabaseManipulation():
         self.db_name = db_name
         self.conn = psycopg2.connect(dbname=self.db_name, host=host)
         self.cur = self.conn.cursor()
+        self.artists = None
 
 
     def _write_corrected_artist_ids(self):
         is_output = True
         while is_output:
             if self.artists is None:
-                self.artists = self.get_table('artists')
+                query = " SELECT * FROM artists"
+                self.cur.execute(sql.SQL(query))
+                self.conn.commit()
+                artist_list = list(self.cur)
+                query = """ 
+                        SELECT column_name 
+                        FROM information_schema.columns
+                        WHERE table_name = 'artists'
+                        ;""" 
+
+                        
+                self.cur.execute(sql.SQL(query))
+                self.conn.commit()
+                col_names = [x for (x,) in self.cur]
+                self.artists = pd.DataFrame(artist_list, columns=col_names)
 
             query = """
                     SELECT id, artist_id, url
@@ -536,7 +551,8 @@ class DatabaseManipulation():
             query = """   
                     SELECT id, url from songs
                     WHERE (url LIKE '%\%28%'
-                    OR url LIKE '%\%29%')
+                    OR url LIKE '%\%29%'
+                    OR url LIKE '%\%2C%')
                     AND checked = 0
                     ORDER BY id
                     LIMIT 1;
@@ -548,7 +564,7 @@ class DatabaseManipulation():
                 current_id = results[0][0]
                 current_url = results[0][1]
 
-                correct_song_url = current_url.replace('%28', '(').replace('%29', ')')
+                correct_song_url = current_url.replace('%28', '(').replace('%29', ')').replace('%2C', ',')
                 query = """   
                         SELECT id, url from songs
                         WHERE url = %s
