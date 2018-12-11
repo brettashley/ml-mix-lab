@@ -8,8 +8,9 @@ def get_and_write_predictions():
                         userCol='sampled_by_song_id',
                         ratingCol='is_connected',
                         nonnegative=True,
-                        regParam=0.2,
-                        rank=200)
+                        regParam=0.01,
+                        rank=200,
+                        alpha=1)
 
     db = database_interaction.DatabaseInteraction(db_name='mixmaker')
 

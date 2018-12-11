@@ -356,12 +356,15 @@ class DatabaseInteraction():
 
     def get_artist_names(self):
         query = """   
-                SELECT id, name
-                from artists;
+                SELECT a.id, a.name
+                FROM artists a
+                WHERE a.id in 
+                    (SELECT s.corrected_artist_id FROM songs s INNER JOIN predictions p ON s.id = p.user_song_id)
                 """
         self.cur.execute(query)
         self.conn.commit()
         return pd.DataFrame([x for x in self.cur], columns=['id', 'name'])
+
 
     
     def get_song_and_artist_names(self, artist_id = None, song_id=None):
