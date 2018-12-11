@@ -418,7 +418,21 @@ class DatabaseInteraction():
         return pd.DataFrame(list(self.cur),
                           columns=['id', 'artist_name', 'song_name'])
 
-
+    def write_predictions(self, predictions, table='predictions_temp'):
+        """ Write predictions (dataframe) to database."""
+        query = """
+                INSERT INTO {} (user_song_id, item_song_id, rating)
+                SELECT %s, %s, %s
+                """
+        for row in predictions.itertuples():
+            if row[0] % 10000 == 0:
+                print(f'{row[0]}/{len(predictions)}')
+                
+            self.cur.execute(
+                sql.SQL(query)
+                    .format(sql.Identifier(table))
+                , (row[1], row[2], row[3]))
+            self.conn.commit()
 
 class DatabaseManipulation():
 
