@@ -48,13 +48,13 @@ h6 {
 }
 
 .bg-dark {
-  background-image: url("../static/img/bg-image1.jpg") !important;
+  background-image: url("/img/bg-image1.jpg") !important;
 }
 
 .bg-picture {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../static/img/bg-image1.jpg");
+  background-image: url("/img/bg-image1.jpg");
   background-position: center center;
   background-size: cover;
 }
@@ -186,7 +186,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../static/img/header.jpg");
+  background-image: url("/img/header.jpg");
   background-position: center center;
   background-size: cover;
 }
