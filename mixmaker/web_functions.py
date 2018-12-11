@@ -21,7 +21,7 @@ class WebFunctionHandler():
     
     def get_artist_selections(self, n_artists):
         artists = self.db.get_artist_names()
-        artists = artists.sort_values('name').set_index('id')
+        artists = artists.sort_values('id').set_index('id')
         output = '<select id="artists_selection" size="5">'
         counter = 0
         for i, artist in artists.iterrows():
