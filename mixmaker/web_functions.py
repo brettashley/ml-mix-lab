@@ -21,13 +21,15 @@ class WebFunctionHandler():
     
     def get_artist_selections(self, n_artists):
         artists = self.db.get_artist_names()
-        artists = artists.sort_values(by='id').set_index('id')
+        artists = artists.sort_values('name').set_index('id')
         output = '<select id="artists_selection" size="5">'
+        counter = 0
         for i, artist in artists.iterrows():
-            if i < n_artists:
+            if counter < n_artists:
                 artist_id = i
                 artist_name = artist[0]
                 output += f'\n    <option value="{artist_id}">{artist_name}</option>'
+                counter += 1
             else:
                 break
         return output + '\n</select>'
