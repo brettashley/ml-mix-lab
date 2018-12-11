@@ -145,14 +145,30 @@ class SongRecommender():
         return song_id_df.merge(recs_df, left_index=True, right_index=True)
     
 
-    def get_predictions_for_all_users(self, recommender, n_predictions=10):
-        recs = recommender.recommendForAllUsers(n_predictions)
+    def get_predictions_for_all_users(self, X, recommender, n_predictions=10):
+        if type(X) != pd.core.frame.DataFrame:
+            existing_pairs_df = X.toPandas()
+            existing_pairs = set((x,y) for [x,y] in 
+                            existing_pairs_df.loc[:,['song_id', 'sampled_by_song_id']].values)
+        else:
+            existing_pairs = set((x,y) for [x,y] in 
+                            X.loc[:,['song_id', 'sampled_by_song_id']].values)
+
+        recs = recommender.recommendForAllUsers(n_predictions*5)
         recs_df = recs.toPandas()
+        
         output = pd.DataFrame(columns=['user_song_id', 'item_song_id', 'rating'])
-        for i, row in recs_df.iterrows():
-            df = pd.DataFrame(row[1], columns=['item_song_id', 'rating'])
-            df['user_song_id'] = list([row[0]] * 10)
-            output = pd.concat([output, df], sort=True)   
+        for row in recs_df.itertuples():
+            df = pd.DataFrame(row[2], columns=['item_song_id', 'rating'])
+            df['user_song_id'] = list([row[1]] * (n_predictions * 5))
+            rows_to_drop = []
+            for entry in df.itertuples():
+                if (entry[3], entry[1]) in existing_pairs:
+                    rows_to_drop.append(entry[0])
+            df.drop(rows_to_drop, axis=0, inplace=True)
+            output = pd.concat([output, df[:n_predictions]], sort=True)
+            
+
         return output.loc[:,['user_song_id', 'item_song_id', 'rating']]
 
 
