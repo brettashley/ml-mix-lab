@@ -1,20 +1,29 @@
+#!/usr/bin/env python3
 
-from database_interaction import DatabaseInteraction
-from model import SongRecommender
+import database_interaction
+import model
+
+def get_and_write_predictions():
+    sr = model.SongRecommender(itemCol='song_id',
+                        userCol='sampled_by_song_id',
+                        ratingCol='is_connected',
+                        nonnegative=True,
+                        regParam=0.2,
+                        rank=200)
+
+    db = database_interaction.DatabaseInteraction(db_name='mixmaker')
+
+    df = db.get_table('connections')
+    data = sr.spark.createDataFrame(df)
+    recommender = sr.fit(data)
+    print('Getting predictions...')
+    preds = sr.get_predictions_for_all_users(df, recommender, n_predictions=10)
+    print('Writing predictions...')
+    db.write_predictions(preds, 'predictions_temp')
 
 
-sr = SongRecommender(itemCol='song_id',
-                     userCol='sampled_by_song_id',
-                     ratingCol='is_connected',
-                     nonnegative=True,
-                     regParam=0.01,
-                     rank=10)
+# get_and_write_predictions()
 
-db = DatabaseInteraction(db_name=mixmaker)
-
-df = db.get_table('connections')
-data = sr.spark.createDataFrame(df)
-recommender = sr.fit(data)
 
 
 
