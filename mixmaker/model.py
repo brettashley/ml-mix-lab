@@ -18,7 +18,8 @@ class SongRecommender():
                 nonnegative=True,
                 regParam=0.01,
                 rank=10,
-                alpha=1):
+                alpha=1,
+                implicitPrefs=True):
 
         self.itemCol = itemCol
         self.userCol = userCol
@@ -27,13 +28,15 @@ class SongRecommender():
         self.regParam = regParam
         self.rank = rank
         self.alpha = alpha
+        self.implicitPrefs = implicitPrefs
         self.als_model = ALS(itemCol=self.itemCol,
                             userCol=self.userCol,
                             ratingCol=self.ratingCol,
                             nonnegative=self.nonnegative,
                             regParam=self.regParam,
                             rank=self.rank,
-                            alpha=self.alpha)
+                            alpha=self.alpha,
+                            implicitPrefs=self.implicitPrefs)
 
         self.spark = (ps.sql.SparkSession.builder 
                         .master("local[4]") 
@@ -154,13 +157,15 @@ class SongRecommender():
             existing_pairs = set((x,y) for [x,y] in 
                             X.loc[:,['song_id', 'sampled_by_song_id']].values)
 
-        recs = recommender.recommendForAllUsers(n_predictions*5)
+        recs = recommender.recommendForAllUsers(n_predictions * 10)
         recs_df = recs.toPandas()
         
         output = pd.DataFrame(columns=['user_song_id', 'item_song_id', 'rating'])
         for row in recs_df.itertuples():
+            if row[0] % 10000 == 0:
+                print(row[0])
             df = pd.DataFrame(row[2], columns=['item_song_id', 'rating'])
-            df['user_song_id'] = list([row[1]] * (n_predictions * 5))
+            df['user_song_id'] = list([row[1]] * (n_predictions * 10))
             rows_to_drop = []
             for entry in df.itertuples():
                 if (entry[3], entry[1]) in existing_pairs:
