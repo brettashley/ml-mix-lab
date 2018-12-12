@@ -428,9 +428,6 @@ class DatabaseInteraction():
                 SELECT %s, %s, %s
                 """
         for row in predictions.itertuples():
-            if row[0] % 10000 == 0:
-                print(f'{row[0]}/{len(predictions)}')
-                
             self.cur.execute(
                 sql.SQL(query)
                     .format(sql.Identifier(table))
