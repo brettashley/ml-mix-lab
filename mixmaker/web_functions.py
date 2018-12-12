@@ -19,9 +19,11 @@ class WebFunctionHandler():
         return (self.db.get_song_and_artist_names(artist_id=artist_id)
                     .to_html())
     
-    def get_artist_selections(self, n_artists):
+    def get_artist_selections(self, n_artists=None):
         artists = self.db.get_artist_names()
-        artists = artists.sort_values('id').set_index('id')
+        artists = artists.sort_values('name').set_index('id')
+        if n_artists is None:
+            n_artists = len(artists)
         output = '<select id="artists_selection" size="5">'
         counter = 0
         for i, artist in artists.iterrows():
