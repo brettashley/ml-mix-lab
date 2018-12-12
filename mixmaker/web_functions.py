@@ -49,22 +49,6 @@ class WebFunctionHandler():
         return results_df.loc[:,['artist', 'song', 'url']].to_dict(orient='records')
 
 
-    def get_artist_searchable(self, n_artists):
-        artists = self.db.get_artist_names()
-        artists = artists.sort_values('id').set_index('id')
-        output = '<input type="text" id="myInput" onkeyup="(function(e) {filterBySearch(); })(event)" placeholder="Search for Artist..">\n\n\
-                <ul id="artists_selection">'
-        counter = 0
-        for i, artist in artists.iterrows():
-            if counter < n_artists:
-                artist_id = i
-                artist_name = artist[0]
-                output += f'\n                    <li id="search" class="hidden"><a value="{artist_id}">{artist_name}</a></li>'
-                counter += 1
-            else:
-                break
-        return output + '\n                </ul>'
-
     
         
 
