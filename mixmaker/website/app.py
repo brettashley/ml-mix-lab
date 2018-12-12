@@ -15,11 +15,13 @@ wfh = WebFunctionHandler()
 def index():
     """Return the main page."""
     # all_songs = db.get_song_and_artist_names()
+    n_artists = 10
     artist_names = wfh.get_unique_artist_names()[:10].to_html()
-    artists_selection = wfh.get_artist_searchable(5)
+    n_artists, artists_selection = wfh.get_artist_searchable(n_artists)
     return render_template('index.html',
                                 artist_names=artist_names,
-                                artists_selection=artists_selection)
+                                artists_selection=artists_selection,
+                                n_artists=n_artists)
 
 
 @app.route('/get_selector_for_songs/<int:artist_id>')

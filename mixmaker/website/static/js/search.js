@@ -12,10 +12,8 @@ function filterBySearch() {
     txtValue = a.textContent || a.innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       // li[i].style.display = "";
-      console.log('remove')
       li[i].classList.remove("hidden");
     } else {
-      console.log('add??')
 
       if (Array.from(li[i].classList).includes("hidden")) {
 
