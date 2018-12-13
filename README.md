@@ -35,7 +35,7 @@ Equating song sampling to creative mixing allows us to use this dataset to train
 
 Create an implicit recommendation system, using each song in the dataset as both a user and item, assigning a `1` to connected songs and `0` to all others. 
 
-We can weight the implicit ratings based on feature matching, such as weighting a connection if two songs have a bpm within `+- 4`.
+We can weight the implicit ratings based on feature matching, such as weighting a connection if two songs have a bpm within `+/- 4`.
 
 Below is a user-item matrix for three songs where `Song 1` and `Song 3` are connected. `Song 1` and `Song 4` are both connected and have the same bpm.
 
